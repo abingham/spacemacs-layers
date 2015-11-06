@@ -212,6 +212,11 @@ user code."
   ;; something keeps overwriting my bindings :-\
   (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
+
+  (setq emacs-ycmd-root "~/projects/emacs-ycmd")
+  (set-variable 'ycmd-server-command '("/usr/local/bin/python2" "-u" "~/projects/ycmd/ycmd"))
+  (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
+  (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

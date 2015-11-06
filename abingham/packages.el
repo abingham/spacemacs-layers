@@ -48,12 +48,7 @@
   (set-variable 'ycmd-request-message-level -1))
 
 (defun abingham/post-init-ycmd ()
-  (add-hook 'python-mode-hook 'ycmd-mode)
-
-  (setq emacs-ycmd-root "~/projects/emacs-ycmd")
-  (set-variable 'ycmd-server-command '("/usr/local/bin/python2" "-u" "/Users/austinbingham/projects/ycmd/ycmd"))
-  (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
-  (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py"))
+  (add-hook 'python-mode-hook 'ycmd-mode))
 
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-python-mode))
