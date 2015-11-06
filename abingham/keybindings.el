@@ -15,3 +15,5 @@
 (global-set-key [(ctrl u)] 'helm-my-buffers)
 
 (global-set-key [(meta /)] 'company-complete)
+
+(global-set-key [(control l)] 'line-to-top-of-window)

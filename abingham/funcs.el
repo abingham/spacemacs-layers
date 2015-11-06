@@ -11,3 +11,10 @@
                               sources)
                     sources)))
     (helm-other-buffer sources "*helm-my-buffers*")))
+
+(defun line-to-top-of-window ()
+  "Scroll current line to top of window.
+
+Replaces three keystroke sequence C-u 0 C-l."
+  (interactive)
+  (recenter 0))

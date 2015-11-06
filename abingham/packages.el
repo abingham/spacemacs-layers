@@ -9,8 +9,7 @@
         company-ycmd
         paredit
         python
-        uniquify
-      ))
+        uniquify))
 
 (setq abingham-excluded-packages '())
 
@@ -58,7 +57,8 @@
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-python-mode))
 
-(defun abingham/post-init-paredit ()
+(defun abingham/init-paredit ()
+  (message "foobar")
   (autoload 'enable-paredit-mode
     "paredit"
     "Turn on pseudo-structural editing of Lisp code." t)
