@@ -1,0 +1,9 @@
+This repo is intended to be dropped directly into the `.emacs.d/private` of a
+spacemacs configuration.
+
+In short, to bootstrap a new spacemacs installation:
+```
+cd .emacs.d/private
+git clone git@github.com:abingham/spacemacs-layers.git +abingham
+cp +abingham/dot.spacemacs ~/.spacemacs
+```
