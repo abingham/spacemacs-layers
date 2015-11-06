@@ -1,0 +1,3 @@
+[submodule "abingham/local/codesearch"]
+	path = abingham/local/codesearch
+	url = git@github.com:abingham/codesearch.el.git

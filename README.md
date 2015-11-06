@@ -4,6 +4,8 @@ spacemacs configuration.
 In short, to bootstrap a new spacemacs installation:
 ```
 cd .emacs.d/private
-git clone git@github.com:abingham/spacemacs-layers.git +abingham
+git clone --recursive git@github.com:abingham/spacemacs-layers.git +abingham
 cp +abingham/dot.spacemacs ~/.spacemacs
 ```
+
+Note that this repo has submodules, hence the `--recursive` above.
