@@ -17,14 +17,22 @@
 
 (setq abingham-post-extensions
       '(
-        ;; post extension names go here
+        codesearch
         ))
 
 ;; For each extension, define a function abingham/init-<extension-name>
 ;;
-;; (defun abingham/init-my-extension ()
-;;   "Initialize my extension"
-;;   )
+(defun abingham/init-codesearch ()
+  "Initialize codesearch"
+  (use-package codesearch
+    :ensure t
+    :bind
+    (("M-'" . codesearch-search)
+     ("M-." . projectile-codesearch-search))
+    :config
+    (set-variable 'codesearch-cindex "~/go/bin/cindex")
+    (set-variable 'codesearch-csearch "~/go/bin/csearch")
+    (set-variable 'codesearch-cindex-flags '())))
 ;;
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
