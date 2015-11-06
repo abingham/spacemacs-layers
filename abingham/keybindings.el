@@ -17,3 +17,5 @@
 (global-set-key [(meta /)] 'company-complete)
 
 (global-set-key [(control l)] 'line-to-top-of-window)
+
+(global-set-key [(ctrl .)] 'comment-or-uncomment-region)

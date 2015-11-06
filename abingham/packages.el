@@ -9,6 +9,7 @@
         company-ycmd
         paredit
         python
+        traad
         uniquify))
 
 (setq abingham-excluded-packages '())
@@ -58,7 +59,6 @@
   (push 'company-ycmd company-backends-python-mode))
 
 (defun abingham/init-paredit ()
-  (message "foobar")
   (autoload 'enable-paredit-mode
     "paredit"
     "Turn on pseudo-structural editing of Lisp code." t)
@@ -72,3 +72,30 @@
 
 (defun abingham/post-init-uniquify ()
   (setq uniquify-buffer-name-style 'forward))
+
+;; TODO: Get therapy in place before enabling this.
+;; (defun abingham/init-traad ()
+;;   (use-package traad
+;;     :bind
+;;     (([(ctrl x) (t) (r)] . traad-rename)
+;;      ([(ctrl x) (t) (u)] . traad-undo)
+;;      ([(ctrl x) (t) (d)] . traad-goto-definition)
+;;      ([(ctrl x) (t) (o)] . traad-display-doc)
+;;      ([(ctrl x) (t) (c)] . traad-display-calltip))
+;;     :init
+;;     (progn
+;;       (require 'traad)
+;;       (set-variable 'traad-server-port 0)
+;;       (set-variable 'traad-server-args '("-V" "2"))
+;;       (add-hook
+;;        'therapy-python3-hooks
+;;        (lambda ()
+;;          (set-variable 'traad-environment-root "traad3")
+;;          (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))))
+;;       (add-hook
+;;        'therapy-python2-hooks
+;;        (lambda ()
+;;          (set-variable 'traad-environment-root "traad")
+;;          (set-variable 'traad-environment-virtualenv '("virtualenv")))))
+;;     :load-path "~/projects/traad/elisp")
+;;   )

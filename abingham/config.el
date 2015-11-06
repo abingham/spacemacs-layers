@@ -1,5 +1,5 @@
-;; Ctrl-L to top of screen
 ;; wilt
+;; therapy
 ;; traad
 
 
