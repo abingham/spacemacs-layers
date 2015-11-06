@@ -2,8 +2,7 @@
 (global-set-key [(ctrl x) (m)] 'windmove-down)
 (global-set-key [(ctrl x) (j)] 'windmove-left)
 (global-set-key [(ctrl x) (l)] 'windmove-right)
-(global-set-key [(ctrl x) (ctrl k)] 'kill-region)
-(global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
+
 (global-set-key (kbd "<f5>") 'magit-status)
 
 (global-set-key [(ctrl h) (f)] 'helm-apropos)
