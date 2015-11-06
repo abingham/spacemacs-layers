@@ -2,7 +2,6 @@
 ;; wilt
 ;; ycmd from dev
 ;; traad
-;; paredit mode stuff
 ;; 
 
 

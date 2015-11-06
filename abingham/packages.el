@@ -6,6 +6,7 @@
         ycmd
         company
         company-ycmd
+        paredit
         python
       ))
 
@@ -43,3 +44,12 @@
 
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-python-mode))
+
+(defun abingham/init-paredit ()
+  (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
