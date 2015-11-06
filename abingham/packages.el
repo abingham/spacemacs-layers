@@ -1,6 +1,7 @@
 (setq abingham-packages
       '(
         deferred
+        diff-hl
         grunt
         helm-projectile
         ycmd
@@ -17,6 +18,11 @@
 (defun abingham/post-init-company ()
   (global-company-mode)
   )
+
+(defun abingham/post-init-diff-hl ()
+  (setq diff-hl-side 'left)
+  (global-diff-hl-mode)
+  (diff-hl-margin-mode))
 
 (defun abingham/init-deferred ()
   (use-package deferred :ensure t))
