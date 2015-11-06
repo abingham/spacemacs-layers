@@ -22,6 +22,7 @@
 (defun abingham/init-wilt ()
   "Initialize wilt."
   (use-package wilt
+    :init
     (add-hook 'python-mode-hook 'wilt-mode)
     )
   )
