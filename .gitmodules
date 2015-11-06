@@ -1,3 +1,6 @@
 [submodule "abingham/local/codesearch"]
 	path = abingham/local/codesearch
 	url = git@github.com:abingham/codesearch.el.git
+[submodule "abingham/local/wilt"]
+	path = abingham/local/wilt
+	url = git@github.com:sixty-north/emacs-wilt.git

@@ -1,7 +1,5 @@
-;; wilt
 ;; therapy
 ;; traad
-;; codesearch
 
 
 
