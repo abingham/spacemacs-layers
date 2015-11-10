@@ -11,7 +11,8 @@
         python
         live-py-mode
         traad
-        uniquify))
+        uniquify
+        pyvenv))
 
 (setq abingham-excluded-packages '())
 
@@ -20,6 +21,10 @@
 (defun abingham/post-init-company ()
   (global-company-mode)
   )
+
+(defun abingham/post-init-pyvenv ()
+  (add-hook 'pyvenv-post-activate-hooks
+            'abingham-pyvenv-hook))
 
 (defun abingham/post-init-diff-hl ()
   (setq diff-hl-side 'left)
