@@ -9,6 +9,7 @@
         company-ycmd
         paredit
         python
+        live-py-mode
         traad
         uniquify))
 
