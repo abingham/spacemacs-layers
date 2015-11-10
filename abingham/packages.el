@@ -57,7 +57,13 @@
   (set-variable 'ycmd-request-message-level -1))
 
 (defun abingham/post-init-ycmd ()
-  (add-hook 'python-mode-hook 'ycmd-mode))
+  (add-hook 'python-mode-hook 'ycmd-mode)
+  (setq python-indent-offset 4)
+  
+  ;; This makes TAB behave sensibly in repls
+  (add-hook 'inferior-python-mode-hook
+            (lambda () (setq tab-width 4 indent-tabs-mode nil)))
+  )
 
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-python-mode))
