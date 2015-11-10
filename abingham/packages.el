@@ -22,6 +22,9 @@
   (global-company-mode)
   )
 
+(defun abingham/init-live-py-mode ()
+  (use-package live-py-mode :ensure t))
+
 (defun abingham/post-init-pyvenv ()
   (add-hook 'pyvenv-post-activate-hooks
             'abingham-pyvenv-hook))
