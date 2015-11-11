@@ -2,6 +2,7 @@
       '(
         deferred
         diff-hl
+        epresent
         grunt
         helm-projectile
         ycmd
@@ -24,6 +25,9 @@
 
 (defun abingham/init-live-py-mode ()
   (use-package live-py-mode :ensure t))
+
+(defun abingham/init-epresent ()
+  (use-package epresent :ensure t))
 
 (defun abingham/post-init-pyvenv ()
   (add-hook 'pyvenv-post-activate-hooks
