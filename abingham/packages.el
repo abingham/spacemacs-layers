@@ -8,6 +8,7 @@
         ycmd
         company
         company-ycmd
+        ox-reveal
         paredit
         python
         live-py-mode
@@ -20,14 +21,16 @@
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 (defun abingham/post-init-company ()
-  (global-company-mode)
-  )
+  (global-company-mode))
 
 (defun abingham/init-live-py-mode ()
   (use-package live-py-mode :ensure t))
 
 (defun abingham/init-epresent ()
   (use-package epresent :ensure t))
+
+(defun abingham/init-ox-reveal ()
+  (use-package ox-reveal :ensure t))
 
 (defun abingham/post-init-pyvenv ()
   (add-hook 'pyvenv-post-activate-hooks
