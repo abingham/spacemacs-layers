@@ -42,7 +42,9 @@ Replaces three keystroke sequence C-u 0 C-l."
   (set-variable 'python-shell-interpreter (first (abingham-find-executables '("ipython3" "python3" "python"))))
   (unless python-shell-interpreter (warn "No Python executable found!"))
   ;; (ab-setup-therapy-tests)
-  (abingham-setup-pyflakes-executable "flake8-3"))
+  (abingham-setup-pyflakes-executable
+   (car (abingham-find-executables
+           '("flake8-3" "flake8")))))
 
 (defun abingham-pyvenv-hook ()
   "Hook for when we change virtual environments."
