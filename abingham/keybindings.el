@@ -19,3 +19,5 @@
 (global-set-key [(control l)] 'line-to-top-of-window)
 
 (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
+
+(global-set-key [(ctrl x) (y) (i)] 'yas-insert-snippet)
