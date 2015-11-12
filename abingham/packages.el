@@ -14,7 +14,8 @@
         live-py-mode
         traad
         uniquify
-        pyvenv))
+        pyvenv
+        org))
 
 (setq abingham-excluded-packages '())
 
@@ -22,6 +23,11 @@
 ;;
 (defun abingham/post-init-company ()
   (global-company-mode))
+
+(defun abingham/post-init-org ()
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((python . t))))
 
 (defun abingham/init-live-py-mode ()
   (use-package live-py-mode :ensure t))
