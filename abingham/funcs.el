@@ -54,3 +54,8 @@ Replaces three keystroke sequence C-u 0 C-l."
 
   ;; Activate the right toolset based on the detected major version.
   (therapy-interpreter-changed))
+
+(defun abingham-toggle-org-babel-confirm ()
+  "En/disable confirmation of evaluation of org-mode source blocks."
+  (interactive)
+  (setq org-confirm-babel-evaluate (not org-confirm-babel-evaluate)))
