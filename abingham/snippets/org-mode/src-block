@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: src-block
+# key: BEGIN
+# binding: direct-keybinding
+# --
+
+#+BEGIN_SRC ${1:language}
+${}
+#+END_SRC
