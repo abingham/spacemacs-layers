@@ -3,6 +3,13 @@ spacemacs configuration.
 
 In short, to bootstrap a new spacemacs installation:
 ```
+# go your home directory, or wherever you want .emacs.d
+cd ~
+
+# (optional) move any existing .emacs.d out of the way
+mv .emacs.d .emacs.d.BACKUP
+
+git clone https://github.com/syl20bnr/spacemacs.git .emacs.d
 cd .emacs.d/private
 git clone --recursive git@github.com:abingham/spacemacs-layers.git +abingham
 cp +abingham/dot.spacemacs ~/.spacemacs
