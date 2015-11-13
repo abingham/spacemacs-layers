@@ -25,9 +25,10 @@
   (global-company-mode))
 
 (defun abingham/post-init-org ()
+  (add-to-list 'org-babel-load-languages '(python . t))
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t))))
+   org-babel-load-languages))
 
 (defun abingham/init-live-py-mode ()
   (use-package live-py-mode :ensure t))
