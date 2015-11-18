@@ -59,3 +59,9 @@ Replaces three keystroke sequence C-u 0 C-l."
   "En/disable confirmation of evaluation of org-mode source blocks."
   (interactive)
   (setq org-confirm-babel-evaluate (not org-confirm-babel-evaluate)))
+
+(defun abingham-user-config ()
+  "Called by docspacemacs/user-config at the end of everything."
+  (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
+  (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
+  (set-face-background 'show-paren-match "moccasin"))

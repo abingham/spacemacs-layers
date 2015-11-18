@@ -208,18 +208,14 @@ user code."
  This function is called at the very end of Spacemacs
  initialization after layers configuration. You are free to put
  any user code."
-  ;; I've tried putting this in other places (e.g. a private layer) but
-  ;; something keeps overwriting my bindings :-\
-  (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
-  (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
-
-  (setq emacs-ycmd-root "~/projects/emacs-ycmd")
+  ;; In general, only put things in here that require per-system configuration.
+  ;; All other stuff should go in abingham-user-config or other places.
   (set-variable 'ycmd-server-command '("/usr/local/bin/python2" "-u" "~/projects/ycmd/ycmd"))
   (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
   (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")
   (set-variable 'codesearch-cindex "c:/gocode/bin/cindex.exe")
   (set-variable 'codesearch-csearch "c:/gocode/bin/csearch.exe")
-)
+  (abingham-user-config))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
