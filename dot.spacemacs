@@ -217,6 +217,8 @@ user code."
   (set-variable 'ycmd-server-command '("/usr/local/bin/python2" "-u" "~/projects/ycmd/ycmd"))
   (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
   (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")
+  (set-variable 'codesearch-cindex "c:/gocode/bin/cindex.exe")
+  (set-variable 'codesearch-csearch "c:/gocode/bin/csearch.exe")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -238,4 +240,5 @@ user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(show-paren-match ((t (:background "moccasin")))))
