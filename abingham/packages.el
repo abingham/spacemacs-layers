@@ -3,6 +3,7 @@
         deferred
         diff-hl
         epresent
+        flycheck
         grunt
         helm-projectile
         ycmd
@@ -23,6 +24,10 @@
 ;;
 (defun abingham/post-init-company ()
   (global-company-mode))
+
+(defun abingham/post-init-flycheck ()
+  ;; The default tooltip behavior was awful...
+  (add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode))
 
 (defun abingham/post-init-org ()
   (add-to-list 'org-babel-load-languages '(python . t))
