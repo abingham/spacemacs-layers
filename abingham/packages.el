@@ -16,7 +16,8 @@
         traad
         uniquify
         pyvenv
-        org))
+        org
+        web-mode))
 
 (setq abingham-excluded-packages '())
 
@@ -24,6 +25,17 @@
 ;;
 (defun abingham/post-init-company ()
   (global-company-mode))
+
+(defun abingham/post-init-web-mode ()
+  (message "post-init-web-mode")
+  (add-to-list 'auto-mode-alist '("\\.mustache$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.jinja2$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mak$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
+  (add-hook 'web-mode-hook (lambda ()
+                             (setq web-mode-markup-indent-offset 4)
+                             (setq web-mode-code-indent-offset 4))))
 
 (defun abingham/post-init-flycheck ()
   ;; The default tooltip behavior was awful...
