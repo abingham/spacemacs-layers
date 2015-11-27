@@ -18,31 +18,6 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; example of useful layers you may want to use right away.
-     ;; uncomment some layer names and press <spc f e r> (vim style) or
-     ;; <m-m f e r> (emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     auto-completion
-     ;; better-defaults
-     c-c++
-     clojure
-     dockerfile
-     elixir
-     emacs-lisp
-     fsharp
-     git
-     markdown
-     org
-     python
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     syntax-checking
-     version-control
-     themes-megapack
-     ycmd
      abingham
      )
    ;; List of additional packages that will be installed without being
