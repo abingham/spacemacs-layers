@@ -5,6 +5,7 @@
    auto-completion
    ;; better-defaults
    c-c++
+   csharp
    clojure
    dockerfile
    elixir
