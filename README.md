@@ -28,6 +28,6 @@ cd ~/.emacs.d
 git fetch upstream
 git checkout sixty-north
 git rebase upstream/master
-git push
+git push origin HEAD:sixty-north
 ```
 Note that this does not update `origin/master` or local `master`, but since you'll be using the `sixty-north` branch that doesn't matter.
