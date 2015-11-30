@@ -11,6 +11,7 @@ mv .emacs.d .emacs.d.BACKUP
 
 git clone https://github.com/abingham/spacemacs.git .emacs.d
 cd .emacs.d
+git remote add upstream https://github.com/syl20bnr/spacemacs.git
 git checkout -b sixty-north origin/sixty-north
 cd .emacs.d/private
 git clone --recursive git@github.com:abingham/spacemacs-layers.git +abingham
@@ -19,3 +20,14 @@ cp +abingham/dot.spacemacs ~/.spacemacs
 ```
 
 Note that this repo has submodules, hence the `--recursive` above.
+
+## Updating spacemacs
+From time to time you'll want to get updates from the base spacemacs and merge them in.
+```
+cd ~/.emacs.d
+git fetch upstream
+git checkout sixty-north
+git rebase upstream/master
+git push
+```
+Note that this does not update `origin/master` or local `master`, but since you'll be using the `sixty-north` branch that doesn't matter.
