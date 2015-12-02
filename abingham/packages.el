@@ -26,6 +26,10 @@
 (defun abingham/post-init-company ()
   (global-company-mode))
 
+(defun abingham/post-init-flycheck ()
+  (add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode)
+  (set-variable 'flycheck-display-errors-delay 0.25))
+
 (defun abingham/post-init-web-mode ()
   (message "post-init-web-mode")
   (add-to-list 'auto-mode-alist '("\\.mustache$" . web-mode))
@@ -36,10 +40,6 @@
   (add-hook 'web-mode-hook (lambda ()
                              (setq web-mode-markup-indent-offset 4)
                              (setq web-mode-code-indent-offset 4))))
-
-(defun abingham/post-init-flycheck ()
-  ;; The default tooltip behavior was awful...
-  (add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode))
 
 (defun abingham/post-init-org ()
   (add-to-list 'org-babel-load-languages '(python . t))
@@ -80,7 +80,6 @@
   (use-package helm)
   (use-package helm-projectile))
 
-
 (defun abingham/post-init-ycmd ()
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
   (set-variable 'ycmd-idle-change-delay 0.1)
@@ -88,7 +87,10 @@
   (set-variable 'ycmd-request-message-level -1))
 
 (defun abingham/post-init-python ()
-  (add-hook 'python-mode-hook 'ycmd-mode)
+  (add-hook 'python-mode-hook #'ycmd-mode)
+  ;; append this hook so it runs after other flycheck stuff. Seems to be
+  ;; necessary...:-/
+  (add-hook 'python-mode-hook (lambda () (add-to-list 'flycheck-disabled-checkers 'ycmd)) t)
   (setq python-indent-offset 4)
   
   ;; This makes TAB behave sensibly in repls
