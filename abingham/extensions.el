@@ -16,11 +16,7 @@
   (use-package codesearch
     :bind
     (("M-'" . codesearch-search)
-     ("M-." . projectile-codesearch-search))
-    :config
-    (set-variable 'codesearch-cindex "~/go/bin/cindex")
-    (set-variable 'codesearch-csearch "~/go/bin/csearch")
-    (set-variable 'codesearch-cindex-flags '())))
+     ("M-." . projectile-codesearch-search))))
 
 (defun abingham/init-therapy ()
   (use-package therapy
