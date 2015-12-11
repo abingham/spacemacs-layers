@@ -14,6 +14,8 @@
 (defun abingham/init-codesearch ()
   "Initialize codesearch"
   (use-package codesearch
+    :config
+    (set-face-foreground 'codesearch-filename "navy")
     :bind
     (("M-'" . codesearch-search)
      ("M-." . projectile-codesearch-search))))
