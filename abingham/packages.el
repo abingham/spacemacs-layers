@@ -1,5 +1,6 @@
 (setq abingham-packages
       '(
+        (codesearch :location local)
         deferred
         diff-hl
         epresent
@@ -13,11 +14,13 @@
         paredit
         python
         live-py-mode
+        (therapy :location local)
         traad
         uniquify
         pyvenv
         org
-        web-mode))
+        web-mode
+        (wilt :location local)))
 
 (setq abingham-excluded-packages '())
 
@@ -142,3 +145,35 @@
 ;;          (set-variable 'traad-environment-virtualenv '("virtualenv")))))
 ;;     :load-path "~/projects/traad/elisp")
 ;;   )
+
+(defun abingham/init-codesearch ()
+  "Initialize codesearch"
+  (use-package codesearch
+    :config
+    (set-face-foreground 'codesearch-filename "navy")
+    :bind
+    (("M-'" . codesearch-search)
+     ("M-." . projectile-codesearch-search))))
+
+(defun abingham/init-therapy ()
+  (use-package therapy
+    :config
+    (progn
+      (add-hook
+       'therapy-python3-hooks
+       'abingham-activate-python3)
+
+      (add-hook
+       'therapy-python2-hooks
+       'abingham-activate-python2)
+
+      ;; run the appropriate hooks
+      (therapy-interpreter-changed))))
+
+(defun abingham/init-wilt ()
+  "Initialize wilt."
+  (use-package wilt
+    :init
+    (add-hook 'python-mode-hook 'wilt-mode)
+    )
+  )
