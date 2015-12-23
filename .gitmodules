@@ -8,3 +8,6 @@
 [submodule "abingham/local/therapy"]
 	path = abingham/local/therapy
 	url = https://github.com/abingham/therapy.git
+[submodule "abingham/local/traad"]
+	path = abingham/local/traad
+	url = https://github.com/abingham/traad

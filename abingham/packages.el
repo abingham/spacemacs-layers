@@ -15,10 +15,12 @@
         python
         live-py-mode
         (therapy :location local)
-        traad
         uniquify
+        ;; python-environment
         pyvenv
         org
+        ;; request-deferred
+        ;; (traad :location local)
         web-mode
         (wilt :location local)))
 
@@ -79,7 +81,7 @@
     (setq grunt-base-command "/usr/local/bin/node /usr/local/bin/grunt")))
 
 (defun abingham/post-init-helm-projectile ()
-  "Initialize stuff"
+  "Initialize stuff"f
   (use-package projectile)
   (use-package helm)
   (use-package helm-projectile))
@@ -119,32 +121,35 @@
 (defun abingham/post-init-uniquify ()
   (setq uniquify-buffer-name-style 'forward))
 
-;; TODO: Get therapy in place before enabling this.
-;; (defun abingham/init-traad ()
-;;   (use-package traad
-;;     :bind
-;;     (([(ctrl x) (t) (r)] . traad-rename)
-;;      ([(ctrl x) (t) (u)] . traad-undo)
-;;      ([(ctrl x) (t) (d)] . traad-goto-definition)
-;;      ([(ctrl x) (t) (o)] . traad-display-doc)
-;;      ([(ctrl x) (t) (c)] . traad-display-calltip))
-;;     :init
-;;     (progn
-;;       (require 'traad)
-;;       (set-variable 'traad-server-port 0)
-;;       (set-variable 'traad-server-args '("-V" "2"))
-;;       (add-hook
-;;        'therapy-python3-hooks
-;;        (lambda ()
-;;          (set-variable 'traad-environment-root "traad3")
-;;          (set-variable 'traad-environment-virtualenv '("pyvenv-3.4"))))
-;;       (add-hook
-;;        'therapy-python2-hooks
-;;        (lambda ()
-;;          (set-variable 'traad-environment-root "traad")
-;;          (set-variable 'traad-environment-virtualenv '("virtualenv")))))
-;;     :load-path "~/projects/traad/elisp")
-;;   )
+(defun abingham/init-python-environment ()
+  (use-package python-environment))
+
+(defun abingham/init-request-deferred ()
+  (use-package request-deferred))
+
+(defun abingham/init-traad ()
+  (use-package traad
+    :bind
+    (([(ctrl x) (t) (r)] . traad-rename)
+     ([(ctrl x) (t) (u)] . traad-undo)
+     ([(ctrl x) (t) (d)] . traad-goto-definition)
+     ([(ctrl x) (t) (o)] . traad-display-doc)
+     ([(ctrl x) (t) (c)] . traad-display-calltip))
+    :init
+    (progn
+      (require 'traad "local/traad/elisp/traad")
+      (set-variable 'traad-server-port 0)
+      (set-variable 'traad-server-args '("-V" "2"))
+      (add-hook
+       'therapy-python3-hooks
+       (lambda ()
+         (set-variable 'traad-environment-root "traad3")
+         (set-variable 'traad-environment-virtualenv '("pyvenv-3.5"))))
+      (add-hook
+       'therapy-python2-hooks
+       (lambda ()
+         (set-variable 'traad-environment-root "traad2")
+         (set-variable 'traad-environment-virtualenv '("virtualenv")))))))
 
 (defun abingham/init-codesearch ()
   "Initialize codesearch"
