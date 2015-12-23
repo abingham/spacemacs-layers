@@ -13,7 +13,7 @@ git clone https://github.com/abingham/spacemacs.git .emacs.d
 cd .emacs.d
 git remote add upstream https://github.com/syl20bnr/spacemacs.git
 git checkout -b sixty-north origin/sixty-north
-cd .emacs.d/private
+cd private
 git clone --recursive git@github.com:abingham/spacemacs-layers.git +abingham
 cp +abingham/dot.spacemacs ~/.spacemacs
 # ...edit ~/.spacemacs as necessary, e.g. for ycmd paths, etc...
