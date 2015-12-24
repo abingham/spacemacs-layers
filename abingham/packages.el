@@ -81,7 +81,7 @@
     (setq grunt-base-command "/usr/local/bin/node /usr/local/bin/grunt")))
 
 (defun abingham/post-init-helm-projectile ()
-  "Initialize stuff"f
+  "Initialize stuff"
   (use-package projectile)
   (use-package helm)
   (use-package helm-projectile))
