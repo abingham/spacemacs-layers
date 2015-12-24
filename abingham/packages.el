@@ -16,11 +16,11 @@
         live-py-mode
         (therapy :location local)
         uniquify
-        ;; python-environment
+        python-environment
         pyvenv
         org
-        ;; request-deferred
-        ;; (traad :location local)
+        request-deferred
+        (traad :location local)
         web-mode
         (wilt :location local)))
 
@@ -137,19 +137,20 @@
      ([(ctrl x) (t) (c)] . traad-display-calltip))
     :init
     (progn
-      (require 'traad "local/traad/elisp/traad")
+      (require 'traad)
       (set-variable 'traad-server-port 0)
       (set-variable 'traad-server-args '("-V" "2"))
       (add-hook
        'therapy-python3-hooks
        (lambda ()
+         (message "traad therapy3 hook")
          (set-variable 'traad-environment-root "traad3")
-         (set-variable 'traad-environment-virtualenv '("pyvenv-3.5"))))
+         (set-variable 'traad-environment-virtualenv traad-py3-environment-virtualenv)))
       (add-hook
        'therapy-python2-hooks
        (lambda ()
          (set-variable 'traad-environment-root "traad2")
-         (set-variable 'traad-environment-virtualenv '("virtualenv")))))))
+         (set-variable 'traad-environment-virtualenv traad-py2-environment-virtualenv))))))
 
 (defun abingham/init-codesearch ()
   "Initialize codesearch"
@@ -170,10 +171,7 @@
 
       (add-hook
        'therapy-python2-hooks
-       'abingham-activate-python2)
-
-      ;; run the appropriate hooks
-      (therapy-interpreter-changed))))
+       'abingham-activate-python2))))
 
 (defun abingham/init-wilt ()
   "Initialize wilt."

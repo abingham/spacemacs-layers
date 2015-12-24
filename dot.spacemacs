@@ -190,6 +190,8 @@ user code."
   (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")
   (set-variable 'codesearch-cindex "c:/gocode/bin/cindex.exe")
   (set-variable 'codesearch-csearch "c:/gocode/bin/csearch.exe")
+  (setq traad-py3-environment-virtualenv '("c:/Python35/python.exe" "c:/Python35/Tools/scripts/pyvenv.py"))
+  (setq traad-py2-environment-virtualenv '("c:/Python27/python.exe" "c:/Python27/Tools/scripts/pyvenv.py"))
   (abingham-user-config))
 
 ;; Do not write anything past this comment. This is where Emacs will
