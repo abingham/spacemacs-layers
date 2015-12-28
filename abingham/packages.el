@@ -12,6 +12,7 @@
         company-ycmd
         ox-reveal
         paredit
+        powerline
         python
         live-py-mode
         (therapy :location local)
@@ -30,6 +31,10 @@
 ;;
 (defun abingham/post-init-company ()
   (global-company-mode))
+
+(defun abingham/post-init-powerline ()
+  (set-variable 'powerline-display-hud nil)
+  (abingham-mode-line-theme))
 
 (defun abingham/post-init-flycheck ()
   (add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode)
