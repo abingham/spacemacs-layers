@@ -160,6 +160,8 @@
 (defun abingham/init-codesearch ()
   "Initialize codesearch"
   (use-package codesearch
+    :init
+    (require 'codesearch)
     :config
     (set-face-foreground 'codesearch-filename "navy")
     :bind
