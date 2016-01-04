@@ -4,6 +4,7 @@
         deferred
         diff-hl
         epresent
+        feature-mode
         flycheck
         grunt
         helm-projectile
@@ -35,6 +36,9 @@
 (defun abingham/post-init-powerline ()
   (set-variable 'powerline-display-hud nil)
   (abingham-mode-line-theme))
+
+(defun abingham/init-feature-mode ()
+  (use-package feature-mode :ensure t))
 
 (defun abingham/post-init-flycheck ()
   (add-hook 'flycheck-mode-hook 'flycheck-pos-tip-mode)
