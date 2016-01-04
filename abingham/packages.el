@@ -13,9 +13,9 @@
         company-ycmd
         ox-reveal
         paredit
-        powerline
         python
         live-py-mode
+        spaceline
         (therapy :location local)
         uniquify
         python-environment
@@ -33,8 +33,8 @@
 (defun abingham/post-init-company ()
   (global-company-mode))
 
-(defun abingham/post-init-powerline ()
-  (set-variable 'powerline-display-hud nil)
+(defun abingham/post-init-spaceline ()
+  (spaceline-toggle-hud-off)
   (abingham-mode-line-theme))
 
 (defun abingham/init-feature-mode ()
