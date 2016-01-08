@@ -11,6 +11,7 @@
         ycmd
         company
         company-ycmd
+        multiple-cursors
         ox-reveal
         paredit
         python
@@ -30,6 +31,12 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+(defun abingham/init-multiple-cursors ()
+  (use-package multiple-cursors
+    :ensure t
+    :config
+    (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)))
+
 (defun abingham/post-init-company ()
   (global-company-mode))
 
