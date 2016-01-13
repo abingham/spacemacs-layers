@@ -173,9 +173,7 @@
   (use-package codesearch
     :init
     (require 'codesearch)
-    :config
-    (set-face-foreground 'codesearch-filename "navy")
-    :bind
+   :bind
     (("M-'" . codesearch-search)
      ("M-." . projectile-codesearch-search))))
 
