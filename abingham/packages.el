@@ -3,6 +3,7 @@
         (codesearch :location local)
         deferred
         diff-hl
+        elm-mode
         epresent
         feature-mode
         flycheck
@@ -31,6 +32,10 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+(defun abingham/init-elm-mode ()
+  (use-package elm-mode
+    :ensure t))
+
 (defun abingham/init-multiple-cursors ()
   (use-package multiple-cursors
     :ensure t
