@@ -12,7 +12,7 @@
 (global-set-key [(ctrl x) (b)] 'helm-mini)
 ;; (global-set-key [(ctrl c) (h) (o)] 'helm-occur)
 (global-set-key [(meta x)] 'helm-M-x)
-(global-set-key [(ctrl u)] 'helm-my-buffers)
+(global-set-key [(ctrl x) (return)] 'helm-my-buffers)
 
 (global-set-key [(meta /)] 'company-complete)
 

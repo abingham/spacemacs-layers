@@ -117,9 +117,13 @@
   (add-hook 'python-mode-hook #'ycmd-mode)
   ;; append this hook so it runs after other flycheck stuff. Seems to be
   ;; necessary...:-/
-  (add-hook 'python-mode-hook (lambda () (add-to-list 'flycheck-disabled-checkers 'ycmd)) t)
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (add-to-list 'flycheck-disabled-checkers 'ycmd)
+              (eldoc-mode 0))
+            t)
   (setq python-indent-offset 4)
-  
+
   ;; This makes TAB behave sensibly in repls
   (add-hook 'inferior-python-mode-hook
             (lambda () (setq tab-width 4 indent-tabs-mode nil))))
