@@ -91,6 +91,18 @@ Replaces three keystroke sequence C-u 0 C-l."
   "My Powerline face 2."
   :group 'powerline)
 
+(defface abingham-powerline-inactive1 '((t (:foreground "black"
+                                            :background "steel blue"
+                                            :inherit mode-line)))
+  "My inactive Powerline face 1."
+  :group 'powerline)
+
+(defface abingham-powerline-inactive2 '((t (:foreground "black"
+                                            :background "steel blue"
+                                            :inherit mode-line)))
+  "My inactive Powerline face 2."
+  :group 'powerline)
+
 (defun abingham-mode-line-theme ()
     "A custom mode-line theme.
 
@@ -106,8 +118,8 @@ Based off of powerline-default-theme."
                     (:eval
                      (let* ((active (powerline-selected-window-active))
                             (mode-line (if active 'mode-line 'mode-line-inactive))
-                            (face1 (if active 'abingham-powerline-active1 'powerline-inactive1))
-                            (face2 (if active 'abingham-powerline-active2 'powerline-inactive2))
+                            (face1 (if active 'abingham-powerline-active1 'abingham-powerline-inactive1))
+                            (face2 (if active 'abingham-powerline-active2 'abingham-powerline-inactive2))
                             (lhs (list (powerline-raw "%*" face1 'l)
                                        (powerline-raw "%4l" face1 'l)
                                        (powerline-raw ":" face1 'l)
