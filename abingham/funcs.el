@@ -79,13 +79,13 @@ Replaces three keystroke sequence C-u 0 C-l."
   ;; Ensure that all therapy hooks are run...
   (therapy-interpreter-changed))
 
-(defface abingham-powerline-active1 '((t (:foreground "grey22"
+(defface abingham-powerline-active1 '((t (:foreground "black"
                                           :background "goldenrod1"
                                           :inherit mode-line)))
   "My Powerline face 1."
   :group 'powerline)
 
-(defface abingham-powerline-active2 '((t (:foreground "grey40"
+(defface abingham-powerline-active2 '((t (:foreground "black"
                                           :background "goldenrod1"
                                           :inherit mode-line)))
   "My Powerline face 2."
