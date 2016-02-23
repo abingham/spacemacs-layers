@@ -47,11 +47,8 @@
     :config
     (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)))
 
-(defun abingham/init-company-quickhelp ()
-  (use-package company-quickhelp
-    :ensure t
-    :config
-    (company-quickhelp-mode 1)))
+(defun abingham/post-init-company-quickhelp ()
+  (company-quickhelp-mode 1))
 
 (defun abingham/post-init-company ()
   (global-company-mode))
