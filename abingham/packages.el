@@ -13,6 +13,7 @@
         company
         company-quickhelp
         company-ycmd
+        elm-yasnippets
         multiple-cursors
         ox-reveal
         paredit
@@ -40,6 +41,12 @@
     (progn
       (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
       (add-to-list 'company-backends 'company-elm))))
+
+(defun abingham/init-elm-yasnipets ()
+  (use-package elm-yasnippets
+    :ensure t
+    :config
+    (elm-snippets-initialize)))
 
 (defun abingham/init-multiple-cursors ()
   (use-package multiple-cursors
