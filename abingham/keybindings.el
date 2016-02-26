@@ -21,3 +21,5 @@
 (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
 
 (global-set-key [(ctrl x) (y) (i)] 'yas-insert-snippet)
+
+(global-set-key [(ctrl shift c) (ctrl shift l)] 'mc/mark-next-like-this)
