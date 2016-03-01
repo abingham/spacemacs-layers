@@ -44,10 +44,7 @@
 
 (defun abingham/init-elm-yasnippets ()
   (use-package elm-yasnippets
-    :ensure t
-    :config
-    (with-eval-after-load 'yasnippet
-      (elm-snippets-initialize))))
+    :ensure t))
 
 (defun abingham/init-multiple-cursors ()
   (use-package multiple-cursors
