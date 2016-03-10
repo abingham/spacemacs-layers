@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: python-reducer
+# --
+class $1:
+
+    def initial(self):
+        return $2
+
+    def step(self, result, item):
+        $0
+        return result
+
+    def complete(self, result):
+        return result
