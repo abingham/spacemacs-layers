@@ -28,12 +28,22 @@
         request-deferred
         (traad :location local)
         web-mode
-        (wilt :location local)))
+        (wilt :location local)
+        vagrant
+        vagrant-tramp))
 
-(setq abingham-excluded-packages '())
+(setq abingham-excluded-packages '(rainbow-delimiters))
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/init-vagrant ()
+  (use-package vagrant
+    :ensure t))
+
+(defun abingham/init-vagrant-tramp ()
+  (use-package vagrant-tramp
+    :ensure t))
 
 (defun abingham/init-elm-mode ()
   (use-package elm-mode
