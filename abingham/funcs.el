@@ -1,3 +1,20 @@
+(setq abingham-root-dir (file-name-directory (or (buffer-file-name)
+                                                 load-file-name)))
+
+(defun abingham-load-snippets ()
+  (let ((snip-dir (expand-file-name "snippets" abingham-root-dir)))
+    (add-to-list 'yas-snippet-dirs snip-dir t)
+    (yas/load-directory snip-dir)))
+
+(eval-after-load 'yasnippet
+  '(abingham-load-snippets))
+
+(defun abingham-clear-comint-buffer ()
+  "Improved repl/comint clearing procedure."
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
 (defun helm-my-buffers ()
   (interactive)
   (let* ((sources '(helm-source-projectile-projects
@@ -75,6 +92,13 @@ Replaces three keystroke sequence C-u 0 C-l."
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  (eval-after-load 'smartparens
+    '(progn
+       (sp-pair "(" nil :actions :rem)
+       (sp-pair "[" nil :actions :rem)
+       (sp-pair "'" nil :actions :rem)
+       (sp-pair "\"" nil :actions :rem)))
 
   ;; Ensure that all therapy hooks are run...
   (therapy-interpreter-changed))

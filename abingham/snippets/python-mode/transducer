@@ -1,0 +1,24 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: python-transducer
+# --
+class $1:
+
+    def __init__(self, reducer):
+        self._reducer = reducer
+
+    def initial(self):
+        return self._reducer.initial()
+
+    def step(self, result, item):
+        return self._reducer.step(result, item)
+
+    def complete(self, result):
+        return self._reducer.complete(result)
+
+
+def $2($0):
+
+    def $2_transducer(reducer):
+        return $1(reducer)
+
+    return $2_transducer

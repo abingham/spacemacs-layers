@@ -28,12 +28,23 @@
         request-deferred
         (traad :location local)
         web-mode
-        (wilt :location local)))
+        (wilt :location local)
+        vagrant
+        vagrant-tramp))
 
-(setq abingham-excluded-packages '())
+(setq abingham-excluded-packages '(rainbow-delimiters))
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/init-vagrant ()
+  (use-package vagrant
+    :ensure t))
+
+(defun abingham/init-vagrant-tramp ()
+  (use-package vagrant-tramp
+    :ensure t))
+
 (defun abingham/init-elm-mode ()
   (use-package elm-mode
     :ensure t
@@ -138,9 +149,12 @@
             t)
   (setq python-indent-offset 4)
 
-  ;; This makes TAB behave sensibly in repls
   (add-hook 'inferior-python-mode-hook
-            (lambda () (setq tab-width 4 indent-tabs-mode nil))))
+            (lambda ()
+              ;; This makes TAB behave sensibly in repls
+              (setq tab-width 4 indent-tabs-mode nil)
+              ;; nicer repl clearing
+              (local-set-key "\C-cl" 'abingham-clear-comint-buffer))))
 
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-python-mode))
