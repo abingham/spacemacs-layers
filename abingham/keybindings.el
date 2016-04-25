@@ -3,7 +3,7 @@
 ;; (global-set-key [(ctrl x) (j)] 'windmove-left)
 ;; (global-set-key [(ctrl x) (l)] 'windmove-right)
 
-(global-set-key (kbd "<f5>") 'magit-status)
+;; (global-set-key (kbd "<f5>") 'magit-status)
 
 ;; (global-set-key [(ctrl h) (f)] 'helm-apropos)
 ;; (global-set-key [(ctrl h) (v)] 'helm-apropos)
@@ -13,7 +13,7 @@
 ;; ;; (global-set-key [(ctrl c) (h) (o)] 'helm-occur)
 ;; (global-set-key [(meta x)] 'helm-M-x)
 
-(evil-leader/set-key "bb" 'helm-my-buffers)
+
 
 ;; (global-set-key [(meta /)] 'company-complete)
 

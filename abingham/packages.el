@@ -41,9 +41,9 @@
   (use-package vagrant
     :ensure t))
 
-(defun abingham/init-vagrant-tramp ()
-  (use-package vagrant-tramp
-    :ensure t))
+;; (defun abingham/init-vagrant-tramp ()
+;;   (use-package vagrant-tramp
+;;     :ensure t))
 
 (defun abingham/init-elm-mode ()
   (use-package elm-mode
