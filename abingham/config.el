@@ -12,6 +12,7 @@
    emacs-lisp
    fsharp
    git
+   go
    html
    markdown
    org
@@ -25,6 +26,3 @@
    themes-megapack
    ycmd
    ))
-
-
-
