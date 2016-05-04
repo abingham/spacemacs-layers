@@ -8,6 +8,7 @@
         feature-mode
         flycheck
         grunt
+        helm-codesearch
         helm-projectile
         ycmd
         company
@@ -131,6 +132,9 @@
   (use-package projectile)
   (use-package helm)
   (use-package helm-projectile))
+
+(defun abingham/init-helm-codesearch ()
+  (evil-leader/set-key "hc" 'helm-codesearch-find-pattern))
 
 (defun abingham/post-init-ycmd ()
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
