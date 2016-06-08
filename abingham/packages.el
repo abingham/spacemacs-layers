@@ -31,7 +31,8 @@
         web-mode
         (wilt :location local)
         vagrant
-        vagrant-tramp))
+        vagrant-tramp
+        mmm-mode))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
 
@@ -41,6 +42,19 @@
 (defun abingham/init-vagrant ()
   (use-package vagrant
     :ensure t))
+
+(defun abingham/post-init-mmm-mode ()
+  (use-package mmm-mode
+    :ensure t
+    :config
+    (progn
+      (setq mmm-global-mode 'maybe)
+      (mmm-add-classes
+       '((markdown-python
+          :submode python-mode
+          :front "^{language=python}[\r\n]+~~~~~~~~$"
+          :back "^~~~~~~~~$")))
+      (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-python))))
 
 ;; (defun abingham/init-vagrant-tramp ()
 ;;   (use-package vagrant-tramp
