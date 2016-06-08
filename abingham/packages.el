@@ -52,8 +52,8 @@
       (mmm-add-classes
        '((markdown-python
           :submode python-mode
-          :front "^{language=python}[\r\n]+~~~~~~~~$"
-          :back "^~~~~~~~~$")))
+          :front "^{language=python}[\r\n]+~\\{8,\\}[\r\n]+"
+          :back "^~\\{8,\\}$")))
       (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-python))))
 
 ;; (defun abingham/init-vagrant-tramp ()
