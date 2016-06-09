@@ -52,7 +52,7 @@
       (mmm-add-classes
        '((markdown-python
           :submode python-mode
-          :front "^{language=python}[\r\n]+~\\{8,\\}[\r\n]+"
+          :front "^{lang\\(uage\\)?=python}[\r\n]+~\\{8,\\}[\r\n]+"
           :back "^~\\{8,\\}$")))
       (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-python))))
 
