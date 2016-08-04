@@ -9,7 +9,7 @@ cd ~
 # (optional) move any existing .emacs.d out of the way
 mv .emacs.d .emacs.d.BACKUP
 
-git clone https://github.com/syl20bnr/spacemacs/spacemacs.git .emacs.d
+git clone https://github.com/syl20bnr/spacemacs.git .emacs.d
 cd .emacs.d
 cd private
 git clone --recursive git@github.com:abingham/spacemacs-layers.git +abingham
