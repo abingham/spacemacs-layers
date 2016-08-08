@@ -9,3 +9,6 @@
 [submodule "abingham/local/traad"]
 	path = abingham/local/traad
 	url = https://github.com/abingham/emacs-traad
+[submodule "abingham/local/emacs-codesearch"]
+	path = abingham/local/emacs-codesearch
+	url = https://github.com/abingham/emacs-codesearch
