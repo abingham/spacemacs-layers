@@ -1,6 +1,6 @@
 (setq abingham-packages
       '(
-        (codesearch :location local)
+        (emacs-codesearch :location local)
         deferred
         diff-hl
         elm-mode
@@ -8,7 +8,6 @@
         feature-mode
         flycheck
         grunt
-        helm-codesearch
         helm-projectile
         ycmd
         company
@@ -147,9 +146,6 @@
   (use-package helm)
   (use-package helm-projectile))
 
-(defun abingham/init-helm-codesearch ()
-  (evil-leader/set-key "hc" 'helm-codesearch-find-pattern))
-
 (defun abingham/post-init-ycmd ()
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
   (set-variable 'ycmd-idle-change-delay 0.1)
@@ -223,14 +219,19 @@
          (set-variable 'traad-environment-root "traad2")
          (set-variable 'traad-environment-virtualenv traad-py2-environment-virtualenv))))))
 
-(defun abingham/init-codesearch ()
-  "Initialize codesearch"
-  (use-package codesearch
+(defun abingham/init-emacs-codesearch ()
+  "Initialize listing-codesearch"
+  (use-package listing-codesearch
     :init
-    (require 'codesearch)
-   :bind
-    (("M-'" . codesearch-search)
-     ("M-." . projectile-codesearch-search))))
+    (require 'listing-codesearch)
+    :bind
+    (("M-'" . listing-codesearch-search)))
+
+  (use-package helm-codesearch
+    :init
+    (require 'helm-codesearch)
+    :config
+    (evil-leader/set-key "hc" 'helm-codesearch-find-pattern)))
 
 (defun abingham/init-therapy ()
   (use-package therapy
