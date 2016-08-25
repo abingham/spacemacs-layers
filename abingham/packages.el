@@ -9,7 +9,7 @@
         flycheck
         grunt
         helm-projectile
-	logito
+        logito
         ycmd
         company
         company-quickhelp
@@ -225,6 +225,11 @@
 
 (defun abingham/init-emacs-codesearch ()
   "Initialize listing-codesearch"
+  (use-package codesearch 
+    :defer t
+    :bind
+    (("M-\"" . codesearch-update-index)))
+
   (use-package listing-codesearch
     :bind
     (("M-'" . listing-codesearch-search)))
