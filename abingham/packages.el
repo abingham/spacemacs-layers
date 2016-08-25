@@ -9,6 +9,7 @@
         flycheck
         grunt
         helm-projectile
+	logito
         ycmd
         company
         company-quickhelp
@@ -37,6 +38,9 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/init-logito ()
+  (use-package logito :ensure t))
 
 (defun abingham/init-vagrant ()
   (use-package vagrant
@@ -222,14 +226,11 @@
 (defun abingham/init-emacs-codesearch ()
   "Initialize listing-codesearch"
   (use-package listing-codesearch
-    :init
-    (require 'listing-codesearch)
     :bind
     (("M-'" . listing-codesearch-search)))
 
   (use-package helm-codesearch
-    :init
-    (require 'helm-codesearch)
+    :defer t
     :config
     (evil-leader/set-key "hc" 'helm-codesearch-find-pattern)))
 
