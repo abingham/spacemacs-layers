@@ -187,7 +187,7 @@ user code."
  any user code."
   ;; In general, only put things in here that require per-system configuration.
   ;; All other stuff should go in abingham-user-config or other places.
-  (set-variable 'ycmd-server-command '("/usr/local/bin/python3" "-u" "~/projects/ycmd/ycmd"))
+  ;; (set-variable 'ycmd-server-command '("/usr/local/bin/python3" "-u" "~/projects/ycmd/ycmd"))
   (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
   (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")
   (set-variable 'codesearch-cindex "c:/gocode/bin/cindex.exe")
