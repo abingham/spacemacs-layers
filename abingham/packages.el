@@ -23,7 +23,7 @@
         spaceline
         (therapy :location local)
         uniquify
-        python-environment
+        virtualenvwrapper
         pyvenv
         org
         request-deferred
@@ -192,8 +192,8 @@
 (defun abingham/post-init-uniquify ()
   (setq uniquify-buffer-name-style 'forward))
 
-(defun abingham/init-python-environment ()
-  (use-package python-environment))
+(defun abingham/init-virtualenvwrapper ()
+  (use-package virtualenvwrapper :ensure t))
 
 (defun abingham/init-request-deferred ()
   (use-package request-deferred))
@@ -206,7 +206,7 @@
      ([(ctrl x) (t) (d)] . traad-goto-definition)
      ([(ctrl x) (t) (o)] . traad-display-doc)
      ([(ctrl x) (t) (c)] . traad-display-calltip))
-    :init
+    :config
     (progn
       (require 'traad)
       (set-variable 'traad-server-port 0)
@@ -225,7 +225,7 @@
 
 (defun abingham/init-emacs-codesearch ()
   "Initialize listing-codesearch"
-  (use-package codesearch 
+  (use-package codesearch
     :defer t
     :bind
     (("M-\"" . codesearch-update-index)))
