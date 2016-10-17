@@ -1,5 +1,6 @@
 (setq abingham-packages
       '(
+        py-autopep8
         (emacs-codesearch :location local)
         deferred
         diff-hl
@@ -155,6 +156,9 @@
   (set-variable 'ycmd-idle-change-delay 0.1)
   (set-variable 'url-show-status nil)
   (set-variable 'ycmd-request-message-level -1))
+
+(defun abingham/init-py-autopep8 ()
+  (use-package py-autopep8))
 
 (defun abingham/post-init-python ()
   (add-hook 'python-mode-hook #'ycmd-mode)
