@@ -4,7 +4,6 @@
         (emacs-codesearch :location local)
         deferred
         diff-hl
-        elm-mode
         epresent
         feature-mode
         flycheck
@@ -16,11 +15,8 @@
         company-quickhelp
         company-ycmd
         elm-yasnippets
-        multiple-cursors
-        ox-reveal
         paredit
         python
-        live-py-mode
         spaceline
         (therapy :location local)
         uniquify
@@ -30,10 +26,7 @@
         request-deferred
         (traad :location local)
         web-mode
-        (wilt :location local)
-        vagrant
-        vagrant-tramp
-        mmm-mode))
+        (wilt :location local)))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
 
@@ -42,10 +35,6 @@
 
 (defun abingham/init-logito ()
   (use-package logito :ensure t))
-
-(defun abingham/init-vagrant ()
-  (use-package vagrant
-    :ensure t))
 
 (defun abingham/post-init-mmm-mode ()
   (use-package mmm-mode
@@ -60,28 +49,9 @@
           :back "^~\\{8,\\}$")))
       (mmm-add-mode-ext-class 'markdown-mode nil 'markdown-python))))
 
-;; (defun abingham/init-vagrant-tramp ()
-;;   (use-package vagrant-tramp
-;;     :ensure t))
-
-(defun abingham/init-elm-mode ()
-  (use-package elm-mode
-    :ensure t
-    :config
-    (progn
-      (add-hook 'elm-mode-hook #'elm-oracle-setup-completion)
-      (add-to-list 'company-backends 'company-elm))))
-
 (defun abingham/init-elm-yasnippets ()
   (use-package elm-yasnippets
     :ensure t))
-
-(defun abingham/init-multiple-cursors ()
-  (use-package multiple-cursors
-    :ensure t
-    :config
-    ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-    ))
 
 (defun abingham/post-init-company-quickhelp ()
   (company-quickhelp-mode 1))
@@ -118,14 +88,8 @@
    'org-babel-load-languages
    org-babel-load-languages))
 
-(defun abingham/init-live-py-mode ()
-  (use-package live-py-mode :ensure t))
-
 (defun abingham/init-epresent ()
   (use-package epresent :ensure t))
-
-(defun abingham/init-ox-reveal ()
-  (use-package ox-reveal :ensure t))
 
 (defun abingham/post-init-pyvenv ()
   (add-hook 'pyvenv-post-activate-hooks
