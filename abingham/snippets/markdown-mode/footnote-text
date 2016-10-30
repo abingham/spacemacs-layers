@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: footnote-text
+# key: BEGIN
+# binding: direct-keybinding
+# --
+[^$1]: $0

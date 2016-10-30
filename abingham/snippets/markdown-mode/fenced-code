@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: fenced-code
+# key: BEGIN
+# binding: direct-keybinding
+# --
+{language=$1}
+~~~~~~~~
+$0
+~~~~~~~~
