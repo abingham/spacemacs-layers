@@ -26,6 +26,7 @@
         request-deferred
         (traad :location local)
         web-mode
+        mmm-mode
         (wilt :location local)))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
@@ -36,18 +37,19 @@
 (defun abingham/init-logito ()
   (use-package logito :ensure t))
 
-;; (defun abingham/post-init-mmm-mode ()
-;;   (use-package mmm-mode
-;;     :ensure t
-;;     :config
-;;     (progn
-;;       (setq mmm-global-mode 'maybe)
-;;       (mmm-add-classes
-;;        '((markua-python
-;;           :submode python-mode
-;;           :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}[\r\n]+"
-;;           :back "^~\\{8,\\}$")))
-;;       (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python))))
+(defun abingham/post-init-mmm-mode ()
+  ;; (use-package mmm-mode
+  ;;   :ensure t
+  ;;   :config
+  ;;   (progn
+  ;;     (setq mmm-global-mode 'maybe)
+  ;;     (mmm-add-classes
+  ;;      '((markua-python
+  ;;         :submode python-mode
+  ;;         :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}[\r\n]+"
+  ;;         :back "^~\\{8,\\}$")))
+  ;;     (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)))
+  )
 
 (defun abingham/init-elm-yasnippets ()
   (use-package elm-yasnippets
