@@ -38,17 +38,14 @@
   (use-package logito :ensure t))
 
 (defun abingham/post-init-mmm-mode ()
-  ;; (use-package mmm-mode
-  ;;   :ensure t
-  ;;   :config
-  ;;   (progn
-  ;;     (setq mmm-global-mode 'maybe)
-  ;;     (mmm-add-classes
-  ;;      '((markua-python
-  ;;         :submode python-mode
-  ;;         :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}[\r\n]+"
-  ;;         :back "^~\\{8,\\}$")))
-  ;;     (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)))
+  ;; Disable until we figure out the problems with mmm-mode.
+  ;; (setq mmm-global-mode 'maybe)
+  ;; (mmm-add-classes
+  ;;  '((markua-python
+  ;;     :submode python-mode
+  ;;     :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}[{'name': 'test params',
+  ;;     :back "^~\\{8,\\}$")))
+  ;; (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)
   )
 
 (defun abingham/init-elm-yasnippets ()
@@ -73,7 +70,6 @@
   (set-variable 'flycheck-display-errors-delay 0.25))
 
 (defun abingham/post-init-web-mode ()
-  (message "post-init-web-mode")
   (add-to-list 'auto-mode-alist '("\\.mustache$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.jinja2$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mak$" . web-mode))
@@ -85,6 +81,7 @@
                              (setq web-mode-code-indent-offset 4))))
 
 (defun abingham/post-init-org ()
+  (setq org-todo-keywords (list "TODO" "IN-PROGRESS" "IMPEDED" "DONE"))
   (add-to-list 'org-babel-load-languages '(python . t))
   (org-babel-do-load-languages
    'org-babel-load-languages
