@@ -3,19 +3,20 @@
    (auto-completion :variables
                     auto-completion-enable-help-tooltip t
                     auto-completion-enable-snippets-in-popup t)
-   ;; better-defaults
    c-c++
    csharp
-   clojure
-   elixir
+   ;; clojure
+   ;; elixir
    elm
    emacs-lisp
-   fsharp
+   ;; fsharp
    git
-   go
+   ;; go
    html
+   ;; ipython-notebook
    markdown
    org
+   purescript
    python
    restclient
    ;; (shell :variables
@@ -24,9 +25,9 @@
    ;; spell-checking
    (syntax-checking :variables
                     syntax-checking-enable-tooltips nil)
-   version-control
    themes-megapack
-   vagrant
+   ;; vagrant
    version-control
    ycmd
-   ))
+   )
+ )

@@ -1,33 +1,34 @@
 (setq abingham-packages
-      '(
-        py-autopep8
+      '
+        ;; py-autopep8
         (emacs-codesearch :location local)
-        deferred
-        diff-hl
-        epresent
+        ;; deferred
+        ;; diff-hl
+        ;; epresent
         feature-mode
-        flycheck
-        grunt
-        helm-projectile
-        logito
-        ycmd
-        company
-        company-quickhelp
-        company-ycmd
-        elm-yasnippets
-        paredit
-        python
+        ;; flycheck
+        ;; grunt
+        ;; helm-projectile
+        ;; logito
+        ;; ycm
+        ;; company
+        ;; company-quickhelp
+        ;; company-ycmd
+        ;; elm-yasnippets
+        ;; paredit
+        ;; python
         spaceline
         (therapy :location local)
-        uniquify
-        virtualenvwrapper
-        pyvenv
-        org
-        request-deferred
+        ;; uniquify
+        ;; virtualenvwrapper
+        ;; pyvenv
+        ;; org
+        ;; request-deferred
         (traad :location local)
-        web-mode
-        mmm-mode
-        (wilt :location local)))
+        ;; web-mode
+        ;; mmm-mode
+        (wilt :location local)
+        ))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
 
@@ -156,8 +157,8 @@
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
 
-(defun abingham/post-init-uniquify ()
-  (setq uniquify-buffer-name-style 'forward))
+;; (defun abingham/post-init-uniquify ()
+;;   (setq uniquify-buffer-name-style 'forward))
 
 (defun abingham/init-virtualenvwrapper ()
   (use-package virtualenvwrapper :ensure t))
