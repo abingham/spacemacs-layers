@@ -8,7 +8,7 @@
         feature-mode
         ;; flycheck
         ;; grunt
-        ;; helm-projectile
+        helm-projectile
         ;; logito
         ;; ycm
         ;; company
