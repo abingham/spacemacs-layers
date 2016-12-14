@@ -9,7 +9,7 @@
         ;; flycheck
         ;; grunt
         helm-projectile
-        ;; logito
+        logito
         ;; ycm
         ;; company
         ;; company-quickhelp
@@ -25,7 +25,7 @@
         ;; org
         ;; request-deferred
         (traad :location local)
-        ;; web-mode
+        web-mode
         ;; mmm-mode
         (wilt :location local)
         ))
