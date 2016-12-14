@@ -1,5 +1,5 @@
 (setq abingham-packages
-      '
+      '(
         ;; py-autopep8
         (emacs-codesearch :location local)
         ;; deferred
