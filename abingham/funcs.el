@@ -15,20 +15,6 @@
   (let ((comint-buffer-maximum-size 0))
     (comint-truncate-buffer)))
 
-(defun helm-my-buffers ()
-  (interactive)
-  (let* ((sources '(helm-source-projectile-projects
-                    helm-source-buffers-list
-                    helm-source-files-in-current-dir
-                    helm-source-recentf
-                    helm-source-buffer-not-found))
-         (sources (if (projectile-project-p)
-                      (append '(helm-source-projectile-files-list
-                                helm-source-projectile-buffers-list)
-                              sources)
-                    sources)))
-    (helm-other-buffer sources "*helm-my-buffers*")))
-
 (defun line-to-top-of-window ()
   "Scroll current line to top of window.
 
@@ -90,7 +76,6 @@ Replaces three keystroke sequence C-u 0 C-l."
   "Called by docspacemacs/user-config at the end of everything."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
-  (evil-leader/set-key "bb" 'helm-my-buffers)
   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
