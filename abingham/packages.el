@@ -2,6 +2,7 @@
       '(
         ;; py-autopep8
         (emacs-codesearch :location local)
+	elog
         ;; deferred
         ;; diff-hl
         ;; epresent
@@ -9,7 +10,6 @@
         ;; flycheck
         ;; grunt
         helm-projectile
-        logito
         ;; ycm
         ;; company
         ;; company-quickhelp
@@ -34,9 +34,6 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
-
-(defun abingham/init-logito ()
-  (use-package logito :ensure t))
 
 (defun abingham/post-init-mmm-mode ()
   ;; Disable until we figure out the problems with mmm-mode.
@@ -191,10 +188,13 @@
          (set-variable 'traad-environment-root "traad2")
          (set-variable 'traad-environment-virtualenv traad-py2-environment-virtualenv))))))
 
+(defun abingham/init-elog ()
+  "initialize elog"
+  (use-package elog :ensure t))
+
 (defun abingham/init-emacs-codesearch ()
-  "Initialize listing-codesearch"
+  "Initialize codesearch"
   (use-package codesearch
-    :defer t
     :bind
     (("M-\"" . codesearch-update-index)))
 
@@ -203,9 +203,9 @@
     (("M-'" . listing-codesearch-search)))
 
   (use-package helm-codesearch
-    :defer t
-    :config
-    (evil-leader/set-key "hc" 'helm-codesearch-find-pattern)))
+    :config 
+    (progn
+    	(evil-leader/set-key "hc" 'helm-codesearch-find-pattern))))
 
 (defun abingham/init-therapy ()
   (use-package therapy
