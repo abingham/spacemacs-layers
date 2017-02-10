@@ -5,6 +5,7 @@
         feature-mode
         company
         company-ycmd
+        elm-mode
         elm-yasnippets
         js2-mode
         mmm-mode
@@ -21,6 +22,10 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/post-init-elm-mode ()
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-elm)))
 
 (defun abingham/post-init-mmm-mode ()
   ;; Disable until we figure out the problems with mmm-mode.

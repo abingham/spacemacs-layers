@@ -1,6 +1,9 @@
 (configuration-layer/declare-layers
  '(
-   auto-completion
+   (auto-completion
+    :variables
+    auto-completion-enable-help-tooltip t
+    auto-completion-enable-snippets-in-popup t)
    c-c++
    csharp
    elm
@@ -15,8 +18,9 @@
    python
    restclient
    rust
-   (syntax-checking :variables
-                    syntax-checking-enable-tooltips nil)
+   (syntax-checking
+    :variables
+    syntax-checking-enable-tooltips nil)
    themes-megapack
    version-control
    ycmd
