@@ -65,10 +65,9 @@
 
 (defun abingham/post-init-org ()
   (setq org-todo-keywords (list "TODO" "IN-PROGRESS" "IMPEDED" "DONE"))
-  (add-to-list 'org-babel-load-languages '(python . t))
   (org-babel-do-load-languages
    'org-babel-load-languages
-   org-babel-load-languages))
+   '((python . t))))
 
 (defun abingham/post-init-ycmd ()
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
