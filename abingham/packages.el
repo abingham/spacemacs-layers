@@ -12,7 +12,6 @@
         paredit
         python
         spaceline
-        (therapy :location local)
         (traad :location local)
         web-mode
         (wilt :location local)
@@ -114,18 +113,7 @@
     (progn
       (require 'traad)
       (set-variable 'traad-server-port 0)
-      (set-variable 'traad-server-args '("-V" "2"))
-      (add-hook
-       'therapy-python3-hooks
-       (lambda ()
-         (message "traad therapy3 hook")
-         (set-variable 'traad-environment-root "traad3")
-         (set-variable 'traad-environment-virtualenv traad-py3-environment-virtualenv)))
-      (add-hook
-       'therapy-python2-hooks
-       (lambda ()
-         (set-variable 'traad-environment-root "traad2")
-         (set-variable 'traad-environment-virtualenv traad-py2-environment-virtualenv))))))
+      (set-variable 'traad-server-args '("-V" "2")))))
 
 (defun abingham/init-elog ()
   "initialize elog"
@@ -145,18 +133,6 @@
     :config
     (progn
     	(evil-leader/set-key "hc" 'helm-codesearch-find-pattern))))
-
-(defun abingham/init-therapy ()
-  (use-package therapy
-    :config
-    (progn
-      (add-hook
-       'therapy-python3-hooks
-       'abingham-activate-python3)
-
-      (add-hook
-       'therapy-python2-hooks
-       'abingham-activate-python2))))
 
 (defun abingham/init-wilt ()
   "Initialize wilt."
