@@ -2,10 +2,6 @@
 	path = abingham/local/wilt
 	url = https://github.com/sixty-north/emacs-wilt.git
 
-[submodule "abingham/local/therapy"]
-	path = abingham/local/therapy
-	url = https://github.com/abingham/therapy.git
-
 [submodule "abingham/local/traad"]
 	path = abingham/local/traad
 	url = https://github.com/abingham/emacs-traad
