@@ -6,6 +6,7 @@
         company
         company-ycmd
         elm-yasnippets
+        js2-mode
         mmm-mode
         org
         paredit
@@ -82,7 +83,11 @@
   ;;             (local-set-key "\C-cl" 'abingham-clear-comint-buffer)))
   )
 
+(defun abingham/post-init-js2-mode ()
+  (add-hook 'js2-mode-hook 'ycmd-mode))
+
 (defun abingham/post-init-company-ycmd ()
+  (push 'company-ycmd company-backends-js2-mode)
   (push 'company-ycmd company-backends-python-mode))
 
 (defun abingham/init-paredit ()
