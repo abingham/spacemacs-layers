@@ -1,5 +1,11 @@
 (setq abingham-packages
       '(
+        ;; We want to use ycmd for python and c# completion
+        (anaconda-mode :excluded t)
+        (company-anaconda :excluded t)
+        (omnisharp :excluded t)
+
+        csharp-mode
         elog
         (emacs-codesearch :location local)
         feature-mode
@@ -89,9 +95,15 @@
 (defun abingham/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'ycmd-mode))
 
+(defun abingham/post-init-csharp-mode ()
+  (add-hook 'csharp-mode-hook 'ycmd-mode))
+
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-js2-mode)
-  (push 'company-ycmd company-backends-python-mode))
+  (push 'company-ycmd company-backends-python-mode)
+  (push 'company-ycmd company-backends-csharp-mode)
+  )
+
 
 (defun abingham/init-paredit ()
   (autoload 'enable-paredit-mode
