@@ -12,6 +12,7 @@
    go
    helm
    html
+   javascript
    markdown
    org
    purescript
