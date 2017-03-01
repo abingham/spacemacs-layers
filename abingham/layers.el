@@ -24,6 +24,7 @@
     syntax-checking-enable-tooltips nil)
    themes-megapack
    version-control
+   yaml
    ycmd
    )
  )
