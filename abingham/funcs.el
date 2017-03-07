@@ -21,14 +21,7 @@ Replaces three keystroke sequence C-u 0 C-l."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
   (set-face-background 'show-paren-match "moccasi)n")
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-  (eval-after-load 'smartparens
-    '(progn
-       (sp-pair "(" nil :actions :rem)
-       (sp-pair "[" nil :actions :rem)
-       (sp-pair "'" nil :actions :rem)
-       (sp-pair "\"" nil :actions :rem))))
+  (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 (defface abingham-powerline-active1 '((t (:foreground "black"
                                           :background "goldenrod1"
