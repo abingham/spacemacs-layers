@@ -20,7 +20,7 @@ Replaces three keystroke sequence C-u 0 C-l."
   "Called by docspacemacs/user-config at the end of everything."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
-  (set-face-background 'show-paren-match "moccasi)n")
+  (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
 (defface abingham-powerline-active1 '((t (:foreground "black"
