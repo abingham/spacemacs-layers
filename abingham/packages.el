@@ -18,6 +18,7 @@
         org
         paredit
         python
+        py-autopep8
         spaceline
         (traad :location local)
         web-mode
@@ -81,8 +82,16 @@
   (set-variable 'url-show-status nil)
   (set-variable 'ycmd-request-message-level -1))
 
+(defun abingham/init-py-autopep8 ()
+  (use-package py-autopep8
+    :defer t
+    :init
+    (spacemacs/set-leader-keys-for-major-mode 'python-mode
+      "cf" 'py-autopep8-buffer)))
+
 (defun abingham/post-init-python ()
   (add-hook 'python-mode-hook 'ycmd-mode)
+
   ;; (setq python-indent-offset 4)
   ;; (add-hook 'inferior-python-mode-hook
   ;;           (lambda ()
