@@ -21,6 +21,7 @@
         py-autopep8
         spaceline
         (traad :location local)
+        virtualenvwrapper ;; for traad
         web-mode
         (wilt :location local)
         ))
@@ -125,6 +126,9 @@
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
   (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
+
+(defun abingham/init-virtualenvwrapper ()
+  (use-package virtualenvwrapper :defer t))
 
 (defun abingham/init-traad ()
   (use-package traad
