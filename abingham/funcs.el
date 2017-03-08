@@ -20,6 +20,12 @@ Replaces three keystroke sequence C-u 0 C-l."
   "Called by docspacemacs/user-config at the end of everything."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
+
+  ;; This tries to address the issue mentioned here: https://github.com/syl20bnr/spacemacs/issues/5435
+  (add-hook 'spacemacs-buffer-mode-hook
+            (lambda ()
+              (set (make-local-variable 'mouse-1-click-follows-link) nil)))
+
   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace))
 
