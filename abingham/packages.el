@@ -138,6 +138,7 @@
      ([(ctrl x) (t) (d)] . traad-goto-definition)
      ([(ctrl x) (t) (o)] . traad-display-doc)
      ([(ctrl x) (t) (c)] . traad-display-calltip))
+    :commands traad-open
     :config
     (progn
       (require 'traad)
