@@ -21,7 +21,7 @@
         py-autopep8
         spaceline
         (traad :location local)
-        virtualenvwrapper ;; for traad
+        virtualenvwrapper
         web-mode
         (wilt :location local)
         ))
