@@ -3,8 +3,8 @@
         ;; We want to use ycmd for python and c# completion
         (anaconda-mode :excluded t)
         (company-anaconda :excluded t)
+        cc-mode
         (omnisharp :excluded t)
-
         csharp-mode
         elog
         (emacs-codesearch :location local)
@@ -24,12 +24,19 @@
         virtualenvwrapper
         web-mode
         (wilt :location local)
+        ycmd
         ))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/post-init-cc-mode ()
+  (setq-default c-default-style "bsd")
+  (setq-default c-basic-offset 4)
+  (setq-default tab-width 4)
+  (add-hook 'c++-mode-hook 'ycmd-mode))
 
 (defun abingham/post-init-elm-mode ()
   (with-eval-after-load 'company
@@ -78,6 +85,7 @@
    '((python . t))))
 
 (defun abingham/post-init-ycmd ()
+  (setq ycmd-force-semantic-completion t)
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
   (set-variable 'ycmd-idle-change-delay 0.1)
   (set-variable 'url-show-status nil)
@@ -93,7 +101,7 @@
 (defun abingham/post-init-python ()
   (add-hook 'python-mode-hook 'ycmd-mode)
 
-  ;; (setq python-indent-offset 4)
+  ;; (setq-default python-indent-offset 4)
   ;; (add-hook 'inferior-python-mode-hook
   ;;           (lambda ()
   ;;             ;; This makes TAB behave sensibly in repls
