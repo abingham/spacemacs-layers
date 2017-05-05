@@ -14,6 +14,7 @@
         elm-mode
         elm-yasnippets
         js2-mode
+        markdown-mode
         mmm-mode
         org
         paredit
@@ -37,6 +38,16 @@
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
   (add-hook 'c++-mode-hook 'ycmd-mode))
+
+(defun abingham/post-init-markdown-mode ()
+  (setq-default c-default-style "bsd")
+  (setq-default c-basic-offset 4)
+  (setq-default tab-width 4)
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (setq buffer-face-mode-face '(:family "Monaco" :height 120))
+              (buffer-face-mode))))
+
 
 (defun abingham/post-init-elm-mode ()
   (with-eval-after-load 'company
@@ -85,7 +96,7 @@
    '((python . t))))
 
 (defun abingham/post-init-ycmd ()
-  (setq ycmd-force-semantic-completion t)
+  ;; (setq ycmd-force-semantic-completion t)
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
   (set-variable 'ycmd-idle-change-delay 0.1)
   (set-variable 'url-show-status nil)
