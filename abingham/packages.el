@@ -40,9 +40,6 @@
   (add-hook 'c++-mode-hook 'ycmd-mode))
 
 (defun abingham/post-init-markdown-mode ()
-  (setq-default c-default-style "bsd")
-  (setq-default c-basic-offset 4)
-  (setq-default tab-width 4)
   (add-hook 'markdown-mode-hook
             (lambda ()
               (setq buffer-face-mode-face '(:family "Monaco" :height 120))
