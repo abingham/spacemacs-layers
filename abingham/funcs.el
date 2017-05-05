@@ -28,7 +28,8 @@ Replaces three keystroke sequence C-u 0 C-l."
 
   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (mac-auto-operator-composition-mode))
+  (if (fboundp 'mac-auto-operator-composition-mode)
+      (mac-auto-operator-composition-mode)))
 
 (defface abingham-powerline-active1 '((t (:foreground "black"
                                           :background "goldenrod1"
