@@ -105,3 +105,11 @@ Based off of powerline-default-theme."
                        (concat (powerline-render lhs)
                                (powerline-fill face2 (powerline-width rhs))
                                (powerline-render rhs)))))))
+
+(defun abingham-ycmd-semantic-completion ()
+  "Do a semantic completion with YCMD."
+  (interactive)
+  (company-cancel)
+  (let ((ycmd-force-semantic-completion (not (company-ycmd--in-include))))
+    (setq company-backend 'company-ycmd)
+    (company-manual-begin)))
