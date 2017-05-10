@@ -26,6 +26,13 @@ Replaces three keystroke sequence C-u 0 C-l."
             (lambda ()
               (set (make-local-variable 'mouse-1-click-follows-link) nil)))
 
+  ;; In prog-mode we want to use hasklig with ligatures.
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (message "setting hasklig face")
+              (setq buffer-face-mode-face '(:family "Hasklig" :height 130))
+              (buffer-face-mode 1)))
+
   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (if (fboundp 'mac-auto-operator-composition-mode)

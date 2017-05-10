@@ -42,8 +42,6 @@
 (defun abingham/post-init-markdown-mode ()
   (add-hook 'markdown-mode-hook
             (lambda ()
-              (setq buffer-face-mode-face '(:family "Monaco" :height 120))
-              (buffer-face-mode 1)
               (flyspell-mode 1))))
 
 
