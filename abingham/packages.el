@@ -9,6 +9,7 @@
         elog
         (emacs-codesearch :location local)
         feature-mode
+        flycheck-vale
         company
         company-ycmd
         elm-mode
@@ -32,6 +33,14 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/init-flycheck-vale ()
+  (use-package flycheck-vale
+    :ensure t
+    :init
+    (progn
+      (require 'flycheck-vale)
+      (flycheck-vale-setup))))
 
 (defun abingham/post-init-cc-mode ()
   (setq-default c-default-style "bsd")
