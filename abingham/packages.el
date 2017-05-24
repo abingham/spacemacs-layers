@@ -50,14 +50,14 @@
     (add-to-list 'company-backends 'company-elm)))
 
 (defun abingham/post-init-mmm-mode ()
-  ;; Disable until we figure out the problems with mmm-mode.
-  ;; (setq mmm-global-mode 'maybe)
-  ;; (mmm-add-classes
-  ;;  '((markua-python
-  ;;     :submode python-mode
-  ;;     :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}[{'name': 'test params',
-  ;;     :back "^~\\{8,\\}$")))
-  ;; (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)
+  (setq mmm-global-mode 'maybe)
+  (mmm-add-classes
+   '((markua-python
+      :submode python-mode
+      ;; :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}",
+      :front "^{language=python.*}[\r\n]+~\\{8,\\}[\r\n]"
+      :back "^~\\{8,\\}$")))
+  (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)
   )
 
 (defun abingham/init-elm-yasnippets ()
