@@ -1,5 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: fenced-code
+# expand-env: ((yas-indent-line 'nil) (yas-wrap-around-region 't))
 # key: BEGIN
 # binding: direct-keybinding
 # --
