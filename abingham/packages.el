@@ -18,6 +18,7 @@
         markdown-mode
         mmm-mode
         org
+	(outline-toc :location local)
         paredit
         python
         py-autopep8
@@ -195,3 +196,7 @@
     (add-hook 'python-mode-hook 'wilt-mode)
     )
   )
+
+(defun abingham/init-outline-toc ()
+  "Initialize outline-toc"
+  (use-package outline-toc))
