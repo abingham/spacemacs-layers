@@ -8,3 +8,6 @@
 [submodule "abingham/local/emacs-codesearch"]
 	path = abingham/local/emacs-codesearch
 	url = https://github.com/abingham/emacs-codesearch
+[submodule "abingham/local/outline-toc"]
+	path = abingham/local/outline-toc
+	url = https://github.com/abingham/outline-toc.el.git
