@@ -5,6 +5,7 @@
     auto-completion-enable-help-tooltip t
     auto-completion-enable-snippets-in-popup t)
    c-c++
+   clojure
    csharp
    elm
    emacs-lisp
