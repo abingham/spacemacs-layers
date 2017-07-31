@@ -36,6 +36,9 @@
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 
+(defun abingham/init-imenu-list ()
+  (use-package imenu-list))
+
 (defun abingham/init-flycheck-vale ()
   (use-package flycheck-vale
     :ensure t
@@ -66,16 +69,9 @@
    '((markua-python
       :submode python-mode
       ;; :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}",
-      :front "^{language=python.*}[\r\n]+~\\{8,\\}[\r\n]"
+      :front "^{language=[python|pycon].*}[\r\n]+~\\{8,\\}[\r\n]"
       :back "^~\\{8,\\}$")))
-  (mmm-add-classes
-   '((markua-python
-      :submode python-mode
-      ;; :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}",
-      :front "^{language=pycon.*}[\r\n]+~\\{8,\\}[\r\n]"
-      :back "^~\\{8,\\}$")))
-  (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)
-  )
+  (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python))
 
 (defun abingham/init-elm-yasnippets ()
   (use-package elm-yasnippets
