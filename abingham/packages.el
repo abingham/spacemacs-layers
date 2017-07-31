@@ -67,6 +67,12 @@
       ;; :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}",
       :front "^{language=python.*}[\r\n]+~\\{8,\\}[\r\n]"
       :back "^~\\{8,\\}$")))
+  (mmm-add-classes
+   '((markua-python
+      :submode python-mode
+      ;; :front "^{.*lang\\(uage\\)?=\"?python\"?.*}[\r\n]+~\\{8,\\}",
+      :front "^{language=pycon.*}[\r\n]+~\\{8,\\}[\r\n]"
+      :back "^~\\{8,\\}$")))
   (mmm-add-mode-ext-class 'markdown-mode nil 'markua-python)
   )
 
