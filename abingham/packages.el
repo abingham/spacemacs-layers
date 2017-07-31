@@ -14,6 +14,7 @@
         company-ycmd
         elm-mode
         elm-yasnippets
+        imenu-list
         js2-mode
         markdown-mode
         mmm-mode
@@ -52,8 +53,8 @@
 (defun abingham/post-init-markdown-mode ()
   (add-hook 'markdown-mode-hook
             (lambda ()
-              (flyspell-mode 1))))
-
+              (flyspell-mode 1)))
+  (add-hook 'markdown-mode-hook 'abingham-use-outline-for-imenu))
 
 (defun abingham/post-init-elm-mode ()
   (with-eval-after-load 'company
@@ -156,7 +157,11 @@
   (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
   (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
   (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
-  (add-hook 'clojure-mode-hook          #'enable-paredit-mode))
+  (add-hook 'clojure-mode-hook          #'enable-paredit-mode)
+  (global-set-key [(alt right)] 'paredit-forward-slurp-sexp)
+  (global-set-key [(alt left)] 'paredit-backward-slurp-sexp)
+  (global-set-key [(alt meta right)] 'paredit-forward-barf-sexp)
+  (global-set-key [(alt meta left)] 'paredit-backward-barf-sexp))
 
 (defun abingham/init-virtualenvwrapper ()
   (use-package virtualenvwrapper :defer t))

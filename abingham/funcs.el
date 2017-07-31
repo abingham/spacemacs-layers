@@ -120,3 +120,10 @@ Based off of powerline-default-theme."
   (let ((ycmd-force-semantic-completion (not (company-ycmd--in-include))))
     (setq company-backend 'company-ycmd)
     (company-manual-begin)))
+
+(defun abingham-use-outline-for-imenu ()
+  (require 'outline)
+  (setq imenu-create-index-function
+        'imenu-default-create-index-function
+        imenu-generic-expression
+        (list (list nil (concat "^\\(?:" outline-regexp "\\).*$") 0))))
