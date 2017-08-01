@@ -29,7 +29,6 @@ Replaces three keystroke sequence C-u 0 C-l."
   ;; In prog-mode we want to use hasklig with ligatures.
   (add-hook 'prog-mode-hook
             (lambda ()
-              (message "setting hasklig face")
               (setq buffer-face-mode-face '(:family "Hasklig" :height 130))
               (buffer-face-mode 1)))
 
