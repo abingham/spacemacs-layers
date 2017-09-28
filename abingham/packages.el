@@ -121,7 +121,11 @@
       "cf" 'py-autopep8-buffer)))
 
 (defun abingham/post-init-python ()
-  (add-hook 'python-mode-hook 'ycmd-mode)
+  (add-hook 'python-mode-hook
+            (lambda ()
+              ;; I was seeing tramp slowdowns when ycmd was active...
+              (unless (tramp-tramp-file-p (buffer-file-name (current-buffer)))
+                (ycmd-mode))))
 
   ;; (setq-default python-indent-offset 4)
   ;; (add-hook 'inferior-python-mode-hook
