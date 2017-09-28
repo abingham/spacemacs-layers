@@ -94,6 +94,8 @@
   (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.pt$" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.cshtml$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tsx$" . web-mode))
   (add-hook 'web-mode-hook (lambda ()
                              (setq web-mode-markup-indent-offset 4)
                              (setq web-mode-code-indent-offset 4))))
