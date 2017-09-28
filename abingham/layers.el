@@ -23,6 +23,7 @@
    (syntax-checking
     :variables
     syntax-checking-enable-tooltips nil)
+   terraform
    themes-megapack
    version-control
    yaml
