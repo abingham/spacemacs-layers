@@ -19,7 +19,9 @@
    purescript
    python
    restclient
+   ruby
    rust
+   shell-scripts
    (syntax-checking
     :variables
     syntax-checking-enable-tooltips nil)
