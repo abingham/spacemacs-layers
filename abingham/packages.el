@@ -14,16 +14,18 @@
         company-ycmd
         elm-mode
         elm-yasnippets
+        helm-codesearch
         imenu-list
         js2-mode
         markdown-mode
         mmm-mode
         org
-	(outline-toc :location local)
+        (outline-toc :location local)
         paredit
         python
         py-autopep8
         spaceline
+        tox
         (traad :location local)
         virtualenvwrapper
         web-mode
@@ -83,6 +85,9 @@
 (defun abingham/post-init-spaceline ()
   (spaceline-toggle-hud-off)
   (abingham-mode-line-theme))
+
+(defun abingham/init-tox ()
+  (use-package tox :ensure t))
 
 (defun abingham/init-feature-mode ()
   (use-package feature-mode :ensure t))
@@ -197,10 +202,14 @@
     :bind
     (("M-'" . listing-codesearch-search)))
 
+  (use-package projectile-codesearch))
+
+(defun abingham/init-helm-codesearch ()
+  "Initialize helm-codesearch"
   (use-package helm-codesearch
     :config
     (progn
-    	(evil-leader/set-key "hc" 'helm-codesearch-find-pattern))))
+      (evil-leader/set-key "hc" 'helm-codesearch-find-pattern))))
 
 (defun abingham/init-wilt ()
   "Initialize wilt."
