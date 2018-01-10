@@ -1,5 +1,6 @@
 (configuration-layer/declare-layers
  '(
+   asciidoc
    (auto-completion
     :variables
     auto-completion-enable-help-tooltip t
