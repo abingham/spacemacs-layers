@@ -8,6 +8,7 @@
         csharp-mode
         elog
         (emacs-codesearch :location local)
+        (emacs-ultan :location local)
         feature-mode
         flycheck-vale
         company
@@ -30,13 +31,15 @@
         virtualenvwrapper
         web-mode
         (wilt :location local)
-        ycmd
-        ))
+        ycmd))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/init-emacs-ultan ()
+  (use-package company-ultan))
 
 (defun abingham/init-imenu-list ()
   (use-package imenu-list))
