@@ -11,3 +11,6 @@
 [submodule "abingham/local/outline-toc"]
 	path = abingham/local/outline-toc
 	url = https://github.com/abingham/outline-toc.el.git
+[submodule "abingham/local/emacs-ultan"]
+	path = abingham/local/emacs-ultan
+	url = http://github.com/abingham/emacs-ultan
