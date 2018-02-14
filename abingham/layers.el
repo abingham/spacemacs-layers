@@ -7,6 +7,7 @@
    c-c++
    clojure
    csharp
+   docker
    elm
    emacs-lisp
    git
@@ -15,6 +16,7 @@
    html
    javascript
    markdown
+   nginx
    org
    purescript
    python
