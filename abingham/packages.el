@@ -21,6 +21,7 @@
         js2-mode
         markdown-mode
         mmm-mode
+        nand2tetris
         org
         (outline-toc :location local)
         paredit
@@ -67,6 +68,17 @@
       ;; M-x all-the-icons-install-fonts
       :ensure t
       :commands (all-the-icons-dired-mode))))
+
+(defun abingham/init-nand2tetris ()
+  (use-package nand2tetris
+    :ensure t
+    :config
+    (setq nand2tetris-core-base-dir "~/nand2tetris")
+    :init
+    (require 'nand2tetris)))
+
+(defun abingham/init-emacs-ultan ()
+  (use-package company-ultan))
 
 (defun abingham/init-imenu-list ()
   (use-package imenu-list))
