@@ -13,7 +13,6 @@
         flycheck-vale
         company
         company-ycmd
-        dired-sidebar
         elm-mode
         elm-yasnippets
         helm-codesearch
@@ -38,35 +37,6 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
-
-(defun abingham/init-dired-sidebar ()
-  (use-package dired-sidebar
-    :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
-    :ensure t
-    :commands (dired-sidebar-toggle-sidebar)
-    :config
-    (setq dired-sidebar-subtree-line-prefix " .")
-    (setq dired-sidebar-theme 'nerd)
-    ;; (cond
-    ;;  ((eq system-type 'darwin)
-    ;;   (if (display-graphic-p)
-    ;;       (setq dired-sidebar-theme 'icons)
-    ;;     (setq dired-sidebar-theme 'nerd))
-    ;;   (setq dired-sidebar-face '(:family "Helvetica" :height 140)))
-    ;;  ((eq system-type 'windows-nt)
-    ;;   (setq dired-sidebar-theme 'nerd)
-    ;;   (setq dired-sidebar-face '(:family "Lucida Sans Unicode" :height 110)))
-    ;;  (:default
-    ;;   (setq dired-sidebar-theme 'nerd)
-    ;;   (setq dired-sidebar-face '(:family "Arial" :height 140))))
-
-    (setq dired-sidebar-use-term-integration t)
-    ;; (setq dired-sidebar-use-custom-font t)
-
-    (use-package all-the-icons-dired
-      ;; M-x all-the-icons-install-fonts
-      :ensure t
-      :commands (all-the-icons-dired-mode))))
 
 (defun abingham/init-imenu-list ()
   (use-package imenu-list))
@@ -114,7 +84,22 @@
 
 (defun abingham/post-init-spaceline ()
   (spaceline-toggle-hud-off)
-  (abingham-mode-line-theme))
+
+  ;; We put wilt as a spaceline segment rather than a minor-mode highlighter.
+  ;; It seems a bit cleaner that way.
+  (spaceline-define-segment abingham-wilt
+    "Spaceline segment for showing the WILT of the current buffer"
+    (when (derived-mode-p 'prog-mode)
+      (format "WILT %.2f" wilt-current)))
+
+  (spaceline-spacemacs-theme 'abingham-wilt)
+  (setq powerline-default-separator nil)
+
+  ;; Some stuff we don't want all the time
+  (spaceline-toggle-buffer-position-off)
+  (spaceline-toggle-buffer-encoding-off)
+  (spaceline-toggle-buffer-encoding-abbrev-off)
+  (spaceline-toggle-minor-modes-off))
 
 (defun abingham/init-tox ()
   (use-package tox :ensure t))
@@ -244,10 +229,12 @@
 (defun abingham/init-wilt ()
   "Initialize wilt."
   (use-package wilt
+    :config
+    ;; Prevent wilt-mode displaying a highligher. We use a spaceline segment instead.
+    (setq wilt-mode-line-template "")
+
     :init
-    (add-hook 'python-mode-hook 'wilt-mode)
-    )
-  )
+    (add-hook 'prog-mode-hook 'wilt-mode)))
 
 (defun abingham/init-outline-toc ()
   "Initialize outline-toc"
