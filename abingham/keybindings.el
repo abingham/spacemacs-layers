@@ -23,6 +23,12 @@
 
 
 (spacemacs/set-leader-keys "ww" 'ace-window)
+(spacemacs/set-leader-keys "wec" 'eyebrowse-create-window-config)
+(spacemacs/set-leader-keys "weC" 'eyebrowse-close-window-config)
+(spacemacs/set-leader-keys "wen" 'eyebrowse-next-window-config)
+(spacemacs/set-leader-keys "wep" 'eyebrowse-prev-window-config)
+(spacemacs/set-leader-keys "wer" 'eyebrowse-rename-window-config)
+(spacemacs/set-leader-keys "wes" 'eyebrowse-switch-to-window-config)
 
 ;; (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
 
