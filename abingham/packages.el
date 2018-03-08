@@ -101,7 +101,7 @@
   ;; It seems a bit cleaner that way.
   (spaceline-define-segment abingham-wilt
     "Spaceline segment for showing the WILT of the current buffer"
-    (when (derived-mode-p 'prog-mode)
+    (when (bound-and-true-p wilt-mode)
       (format "WILT %.2f" wilt-current)))
 
   (spaceline-spacemacs-theme 'abingham-wilt)
