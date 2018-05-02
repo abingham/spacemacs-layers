@@ -21,6 +21,10 @@ Replaces three keystroke sequence C-u 0 C-l."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
 
+  ;; Making neotree work...https://github.com/jaypei/emacs-neotree/issues/226
+  (helm-autoresize-mode 1)
+  (setq helm-split-window-in-side-p t)
+
   ;; This tries to address the issue mentioned here: https://github.com/syl20bnr/spacemacs/issues/5435
   (add-hook 'spacemacs-buffer-mode-hook
             (lambda ()
