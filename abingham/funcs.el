@@ -56,3 +56,7 @@ Replaces three keystroke sequence C-u 0 C-l."
         'imenu-default-create-index-function
         imenu-generic-expression
         (list (list nil (concat "^\\(?:" outline-regexp "\\).*$") 0))))
+
+(defun abingham-show-point ()
+  (interactive)
+  (message "Point: %s" (point)))
