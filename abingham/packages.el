@@ -6,6 +6,7 @@
         (company-anaconda :excluded t)
         cc-mode
         (omnisharp :excluded t)
+        company-lsp
         csharp-mode
         elog
         (emacs-codesearch :location local)
@@ -18,37 +19,61 @@
         helm-codesearch
         imenu-list
         js2-mode
+        lsp-mode
+        ;; lsp-ui
         markdown-mode
         mmm-mode
-        nand2tetris
         org
         (outline-toc :location local)
         paredit
         python
-        py-autopep8
+        ;; py-autopep8
         spaceline
         tox
         (traad :location local)
-        virtualenvwrapper
+        ;; virtualenvwrapper
         web-mode
         (wilt :location local)
-        ycmd))
+        ycmd
+        ))
 
 (setq abingham-excluded-packages '(rainbow-delimiters))
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 
-(defun abingham/init-nand2tetris ()
-  (use-package nand2tetris
+(defun abingham/init-lsp-mode ()
+  (use-package lsp-mode
     :ensure t
-    :config
-    (setq nand2tetris-core-base-dir "~/nand2tetris")
     :init
-    (require 'nand2tetris)))
+    (progn
+     (require 'lsp-mode)
+     (lsp-define-stdio-client
+      lsp-python-mode
+      "python"
+      (lsp-make-traverser #'(lambda (dir)
+                              (directory-files
+                               dir
+                               nil
+                               "setup.py")))
+      '("/Users/sixtynorth/.virtualenvs/pyls/bin/python"
+        "/Users/sixtynorth/.virtualenvs/pyls/bin/pyls"
+        "-vv"))
 
-(defun abingham/init-emacs-ultan ()
-  (use-package company-ultan))
+     (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
+
+(defun abingham/init-lsp-ui ()
+  (use-package lsp-ui
+    :ensure t
+    :init
+    (progn
+      (require 'lsp-ui)
+      (add-hook 'lsp-mode-hook 'lsp-ui-mode))))
+
+(defun abingham/init-company-lsp ()
+  (use-package company-lsp
+    :ensure t
+    :init (push 'company-lsp company-backends)))
 
 (defun abingham/init-imenu-list ()
   (use-package imenu-list))
@@ -152,22 +177,6 @@
     (spacemacs/set-leader-keys-for-major-mode 'python-mode
       "cf" 'py-autopep8-buffer)))
 
-(defun abingham/post-init-python ()
-  (add-hook 'python-mode-hook
-            (lambda ()
-              ;; I was seeing tramp slowdowns when ycmd was active...
-              (unless (tramp-tramp-file-p (buffer-file-name (current-buffer)))
-                (ycmd-mode))))
-
-  ;; (setq-default python-indent-offset 4)
-  ;; (add-hook 'inferior-python-mode-hook
-  ;;           (lambda ()
-  ;;             ;; This makes TAB behave sensibly in repls
-  ;;             (setq tab-width 4 indent-tabs-mode nil)
-  ;;             ;; nicer repl clearing
-  ;;             (local-set-key "\C-cl" 'abingham-clear-comint-buffer)))
-  )
-
 (defun abingham/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'ycmd-mode))
 
@@ -176,7 +185,7 @@
 
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-js2-mode)
-  (push 'company-ycmd company-backends-python-mode)
+  ;; (push 'company-ycmd company-backends-python-mode)
   (push 'company-ycmd company-backends-csharp-mode)
   )
 
