@@ -6,7 +6,7 @@
         (company-anaconda :excluded t)
         cc-mode
         (omnisharp :excluded t)
-        company-lsp
+        ;; company-lsp
         csharp-mode
         elog
         (emacs-codesearch :location local)
@@ -16,7 +16,7 @@
         company-ycmd
         elm-mode
         elm-yasnippets
-        helm-codesearch
+        ;; helm-codesearch
         imenu-list
         js2-mode
         lsp-mode
@@ -26,12 +26,11 @@
         org
         (outline-toc :location local)
         paredit
-        python
         ;; py-autopep8
         spaceline
         tox
         (traad :location local)
-        ;; virtualenvwrapper
+        virtualenvwrapper
         web-mode
         (wilt :location local)
         ycmd

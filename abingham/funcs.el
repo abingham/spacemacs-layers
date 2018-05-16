@@ -16,14 +16,27 @@ Replaces three keystroke sequence C-u 0 C-l."
   (interactive)
   (recenter 0))
 
+(defun lsp-action-retrieve-and-run ()
+  "Retrieve, select, and run code action."
+  (interactive)
+  (lsp--cur-workspace-check)
+  (lsp--send-request-async (lsp--make-request
+                            "textDocument/codeAction"
+                            (lsp--text-document-code-action-params))
+                           (lambda (actions)
+                             (setq lsp-code-actions actions)
+                             (condition-case nil
+                                 (call-interactively 'lsp-execute-code-action)
+                               (quit "Quit")))))
+
 (defun abingham-user-config ()
   "Called by docspacemacs/user-config at the end of everything."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
   ;; (global-set-key [(ctrl x) (ctrl j)] 'copy-region-as-kill)
 
   ;; Making neotree work...https://github.com/jaypei/emacs-neotree/issues/226
-  (helm-autoresize-mode 1)
-  (setq helm-split-window-in-side-p t)
+  ;; (helm-autoresize-mode 1)
+  ;; (setq helm-split-window-in-side-p t)
 
   ;; This tries to address the issue mentioned here: https://github.com/syl20bnr/spacemacs/issues/5435
   (add-hook 'spacemacs-buffer-mode-hook

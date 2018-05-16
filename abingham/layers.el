@@ -13,8 +13,8 @@
    emacs-lisp
    git
    go
-   helm
    html
+   ivy
    javascript
    markdown
    nginx

@@ -30,6 +30,8 @@
 (spacemacs/set-leader-keys "wer" 'eyebrowse-rename-window-config)
 (spacemacs/set-leader-keys "wes" 'eyebrowse-switch-to-window-config)
 
+(spacemacs/set-leader-keys "hc" 'counsel-codesearch)
+
 ;; (global-set-key [(ctrl .)] 'comment-or-uncomment-region)
 
 ;; (global-set-key [(ctrl x) (y) (i)] 'yas-insert-snippet)
