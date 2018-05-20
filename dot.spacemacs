@@ -187,13 +187,12 @@ user code."
  any user code."
   ;; In general, only put things in here that require per-system configuration.
   ;; All other stuff should go in abingham-user-config or other places.
-  ;; (set-variable 'ycmd-server-command '("/usr/local/bin/python3" "-u" "~/projects/ycmd/ycmd"))
-  (set-variable 'ycmd-extra-conf-whitelist '("~/projects/*" "~/sandbox/*"))
-  (set-variable 'ycmd-global-config "~/.emacs.d/ycm_global_conf.py")
-  (set-variable 'codesearch-cindex "c:/gocode/bin/cindex.exe")
-  (set-variable 'codesearch-csearch "c:/gocode/bin/csearch.exe")
-  (setq traad-py3-environment-virtualenv '("c:/Python35/python.exe" "c:/Python35/Tools/scripts/pyvenv.py"))
-  (setq traad-py2-environment-virtualenv '("c:/Python27/python.exe" "c:/Python27/Tools/scripts/pyvenv.py"))
+  (set-variable 'ycmd-extra-conf-whitelist '("~/repos/*" "~/sandbox/*"))
+  (set-variable 'ycmd-server-command
+                '((expand-file-name "~/.virtualenvs/ycmd/bin/python") "-u"
+                  (expand-file-name "~/repos/ycmd/ycmd")))
+  (set-variable 'codesearch-cindex (expand-file-name "~/go/bin/cindex"))
+  (set-variable 'codesearch-csearch (expand-file-name "~/go/bin/csearch"))
   (abingham-user-config))
 
 ;; Do not write anything past this comment. This is where Emacs will
