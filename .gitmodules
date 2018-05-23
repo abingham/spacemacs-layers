@@ -14,3 +14,6 @@
 [submodule "abingham/local/emacs-ultan"]
 	path = abingham/local/emacs-ultan
 	url = http://github.com/abingham/emacs-ultan
+[submodule "abingham/local/emacs-counsel-codesearch"]
+	path = abingham/local/emacs-counsel-codesearch
+	url = git@github.com:abingham/emacs-counsel-codesearch

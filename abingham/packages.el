@@ -10,6 +10,7 @@
         csharp-mode
         elog
         (emacs-codesearch :location local)
+        (emacs-counsel-codesearch :location local)
         feature-mode
         flycheck-vale
         company
@@ -167,7 +168,15 @@
   (set-variable 'ycmd-parse-conditions '(save new-line buffer-focus))
   (set-variable 'ycmd-idle-change-delay 0.1)
   (set-variable 'url-show-status nil)
-  (set-variable 'ycmd-request-message-level -1))
+  (set-variable 'ycmd-request-message-level -1)
+
+  ;; these are correct for my normal emacs installations, but are obviously
+  ;; somewhat installation-dependent. If you need to set these to something
+  ;; different for your machine, change them in `dotspacemacs/user-config'.
+  (set-variable 'ycmd-extra-conf-whitelist '("~/repos/*" "~/sandbox/*"))
+  (set-variable 'ycmd-server-command
+                (list (expand-file-name "~/.virtualenvs/ycmd/bin/python") "-u"
+                      (expand-file-name "~/repos/ycmd/ycmd"))))
 
 (defun abingham/init-py-autopep8 ()
   (use-package py-autopep8
@@ -237,7 +246,16 @@
     :bind
     (("M-'" . listing-codesearch-search)))
 
-  (use-package projectile-codesearch))
+  (use-package projectile-codesearch)
+
+  ;; These work for my normal installation, but you can set them to something
+  ;; else in `dotspacemacs/user-config' if needed.
+  (set-variable 'codesearch-cindex (expand-file-name "~/go/bin/cindex"))
+  (set-variable 'codesearch-csearch (expand-file-name "~/go/bin/csearch")))
+
+(defun abingham/init-emacs-counsel-codesearch ()
+  "Initialize counsel codesearch"
+  (use-package counsel-codesearch))
 
 (defun abingham/init-helm-codesearch ()
   "Initialize helm-codesearch"
