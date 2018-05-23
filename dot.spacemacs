@@ -179,14 +179,6 @@ user code."
  This function is called at the very end of Spacemacs
  initialization after layers configuration. You are free to put
  any user code."
-  ;; In general, only put things in here that require per-system configuration.
-  ;; All other stuff should go in abingham-user-config or other places.
-  (set-variable 'ycmd-extra-conf-whitelist '("~/repos/*" "~/sandbox/*"))
-  (set-variable 'ycmd-server-command
-                '((expand-file-name "~/.virtualenvs/ycmd/bin/python") "-u"
-                  (expand-file-name "~/repos/ycmd/ycmd")))
-  (set-variable 'codesearch-cindex (expand-file-name "~/go/bin/cindex"))
-  (set-variable 'codesearch-csearch (expand-file-name "~/go/bin/csearch"))
   (abingham-user-config))
 
 ;; Do not write anything past this comment. This is where Emacs will
