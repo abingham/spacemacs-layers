@@ -56,8 +56,8 @@
                                dir
                                nil
                                "setup.py")))
-      '("/Users/sixtynorth/.virtualenvs/pyls/bin/python"
-        "/Users/sixtynorth/.virtualenvs/pyls/bin/pyls"
+      '((expand-file-name "~/.virtualenvs/pyls/bin/python")
+        (expand-file-name "~/.virtualenvs/pyls/bin/pyls")
         "-vv"))
 
      (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
