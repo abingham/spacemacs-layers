@@ -9,8 +9,8 @@
         ;; company-lsp
         csharp-mode
         elog
-        (emacs-codesearch :location local)
-        (emacs-counsel-codesearch :location local)
+        codesearch
+        counsel-codesearch
         feature-mode
         flycheck-vale
         company
@@ -27,6 +27,7 @@
         org
         (outline-toc :location local)
         paredit
+        projectile-codesearch
         ;; py-autopep8
         spaceline
         tox
@@ -236,7 +237,7 @@
   "initialize elog"
   (use-package elog :ensure t))
 
-(defun abingham/init-emacs-codesearch ()
+(defun abingham/init-codesearch ()
   "Initialize codesearch"
   (use-package codesearch
     :bind
@@ -246,14 +247,16 @@
     :bind
     (("M-'" . listing-codesearch-search)))
 
-  (use-package projectile-codesearch)
 
   ;; These work for my normal installation, but you can set them to something
   ;; else in `dotspacemacs/user-config' if needed.
   (set-variable 'codesearch-cindex (expand-file-name "~/go/bin/cindex"))
   (set-variable 'codesearch-csearch (expand-file-name "~/go/bin/csearch")))
 
-(defun abingham/init-emacs-counsel-codesearch ()
+(defun abingham/init-projectile-codesearch ()
+  (use-package projectile-codesearch))
+
+(defun abingham/init-counsel-codesearch ()
   "Initialize counsel codesearch"
   (use-package counsel-codesearch))
 
