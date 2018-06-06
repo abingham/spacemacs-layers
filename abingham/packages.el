@@ -1,20 +1,17 @@
 (setq abingham-packages
       '(
-        ;; We want to use ycmd for python and c# completion
-
         (anaconda-mode :excluded t)
-        (company-anaconda :excluded t)
         cc-mode
-        (omnisharp :excluded t)
+        (company-anaconda :excluded t)
         ;; company-lsp
-        csharp-mode
-        elog
         codesearch
-        counsel-codesearch
-        feature-mode
-        flycheck-vale
         company
         company-ycmd
+        counsel-codesearch
+        csharp-mode
+        elog
+        feature-mode
+        flycheck-vale
         elm-mode
         elm-yasnippets
         ;; helm-codesearch
@@ -24,10 +21,12 @@
         ;; lsp-ui
         markdown-mode
         mmm-mode
+        (omnisharp :excluded t)
         org
         (outline-toc :location local)
         paredit
         py-autopep8
+        python
         spaceline
         tox
         (traad :location local)
