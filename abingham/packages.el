@@ -3,7 +3,7 @@
         (anaconda-mode :excluded t)
         cc-mode
         (company-anaconda :excluded t)
-        ;; company-lsp
+        company-lsp
         codesearch
         company
         company-ycmd
@@ -17,8 +17,8 @@
         ;; helm-codesearch
         imenu-list
         js2-mode
-        ;; lsp-mode
-        ;; lsp-ui
+        lsp-mode
+        lsp-ui
         markdown-mode
         mmm-mode
         (omnisharp :excluded t)
@@ -41,38 +41,39 @@
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 
-;; (defun abingham/init-lsp-mode ()
-;;   (use-package lsp-mode
-;;     :ensure t
-;;     :init
-;;     (progn
-;;      (require 'lsp-mode)
-;;      (lsp-define-stdio-client
-;;       lsp-python-mode
-;;       "python"
-;;       (lsp-make-traverser #'(lambda (dir)
-;;                               (directory-files
-;;                                dir
-;;                                nil
-;;                                "setup.py")))
-;;       '((expand-file-name "~/.virtualenvs/pyls/bin/python")
-;;         (expand-file-name "~/.virtualenvs/pyls/bin/pyls")
-;;         "-vv"))
+(defun abingham/init-lsp-mode ()
+  (use-package lsp-mode
+    :ensure t
+    :init
+    (progn
+     (require 'lsp-mode)
+     (lsp-define-stdio-client
+      lsp-python-mode
+      "python"
+      (lsp-make-traverser #'(lambda (dir)
+                              (directory-files
+                               dir
+                               nil
+                               "setup.py")))
+      (list
+       (expand-file-name "~/.virtualenvs/pyls/bin/python")
+       (expand-file-name "~/.virtualenvs/pyls/bin/pyls")
+       "-vv"))
 
-;;      (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
+     (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
 
-;; (defun abingham/init-lsp-ui ()
-;;   (use-package lsp-ui
-;;     :ensure t
-;;     :init
-;;     (progn
-;;       (require 'lsp-ui)
-;;       (add-hook 'lsp-mode-hook 'lsp-ui-mode))))
+(defun abingham/init-lsp-ui ()
+  (use-package lsp-ui
+    :ensure t
+    :init
+    (progn
+      (require 'lsp-ui)
+      (add-hook 'lsp-mode-hook 'lsp-ui-mode))))
 
-;; (defun abingham/init-company-lsp ()
-;;   (use-package company-lsp
-;;     :ensure t
-;;     :init (push 'company-lsp company-backends)))
+(defun abingham/init-company-lsp ()
+  (use-package company-lsp
+    :ensure t
+    :init (push 'company-lsp company-backends)))
 
 (defun abingham/init-imenu-list ()
   (use-package imenu-list))
@@ -188,8 +189,9 @@
   (add-hook 'python-mode-hook
             (lambda ()
               ;; I was seeing tramp slowdowns when ycmd was active...
-              (unless (tramp-tramp-file-p (buffer-file-name (current-buffer)))
-                (ycmd-mode)))))
+              ;; (unless (tramp-tramp-file-p (buffer-file-name (current-buffer)))
+              ;;   (ycmd-mode))
+              )))
 
 (defun abingham/post-init-js2-mode ()
   (add-hook 'js2-mode-hook 'ycmd-mode))
@@ -199,7 +201,7 @@
 
 (defun abingham/post-init-company-ycmd ()
   (push 'company-ycmd company-backends-js2-mode)
-  (push 'company-ycmd company-backends-python-mode)
+  ;; (push 'company-ycmd company-backends-python-mode)
   (push 'company-ycmd company-backends-csharp-mode)
   )
 
