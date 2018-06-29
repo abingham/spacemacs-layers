@@ -47,8 +47,7 @@ Replaces three keystroke sequence C-u 0 C-l."
   (add-hook 'prog-mode-hook
             (lambda ()
               (setq buffer-face-mode-face '(:family "Hasklig" :height 130))
-              (buffer-face-mode 1)
-              (linum-relative-mode 1)))
+              (buffer-face-mode 1)))
 
   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace)

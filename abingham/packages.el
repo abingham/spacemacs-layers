@@ -68,6 +68,7 @@
     :init
     (progn
       (require 'lsp-ui)
+      (setq lsp-ui-sideline-enable nil)
       (add-hook 'lsp-mode-hook 'lsp-ui-mode))))
 
 (defun abingham/init-company-lsp ()
