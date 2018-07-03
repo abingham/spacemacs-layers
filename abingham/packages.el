@@ -46,7 +46,6 @@
     :ensure t
     :init
     (progn
-     (require 'lsp-mode)
      (lsp-define-stdio-client
       lsp-python-mode
       "python"
@@ -67,7 +66,6 @@
     :ensure t
     :init
     (progn
-      (require 'lsp-ui)
       (setq lsp-ui-sideline-enable nil)
       (add-hook 'lsp-mode-hook 'lsp-ui-mode))))
 
@@ -84,7 +82,6 @@
     :ensure t
     :init
     (progn
-      (require 'flycheck-vale)
       (flycheck-vale-setup))))
 
 (defun abingham/post-init-cc-mode ()
@@ -224,7 +221,7 @@
   (global-set-key [(alt meta left)] 'paredit-backward-barf-sexp))
 
 (defun abingham/init-virtualenvwrapper ()
-  (use-package virtualenvwrapper :defer t))
+  (use-package virtualenvwrapper))
 
 (defun abingham/init-traad ()
   (use-package traad
@@ -234,10 +231,8 @@
      ([(ctrl x) (t) (d)] . traad-goto-definition)
      ([(ctrl x) (t) (o)] . traad-display-doc)
      ([(ctrl x) (t) (c)] . traad-display-calltip))
-    :commands traad-open
     :config
     (progn
-      (require 'traad)
       (set-variable 'traad-server-port 0)
       (set-variable 'traad-server-args '("-V" "2")))))
 
