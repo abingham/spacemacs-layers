@@ -3,7 +3,7 @@
         (anaconda-mode :excluded t)
         cc-mode
         (company-anaconda :excluded t)
-        company-lsp
+        ;; company-lsp
         codesearch
         company
         company-ycmd
@@ -41,27 +41,25 @@
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 
-(defun abingham/init-lsp-mode ()
+(defun abingham/post-init-lsp-mode ()
   (use-package lsp-mode
-    :ensure t
-    :init
+    :config
     (progn
-     (lsp-define-stdio-client
-      lsp-python-mode
-      "python"
-      (lsp-make-traverser #'(lambda (dir)
-                              (directory-files
-                               dir
-                               nil
-                               "setup.py")))
-      (list
-       (expand-file-name "~/.virtualenvs/pyls/bin/python")
-       (expand-file-name "~/.virtualenvs/pyls/bin/pyls")
-       "-vv"))
+      (lsp-define-stdio-client
+       lsp-python-mode
+       "python"
+       (lsp-make-traverser #'(lambda (dir)
+                               (directory-files
+                                dir
+                                nil
+                                "setup.py")))
+       (list
+        (expand-file-name "~/.virtualenvs/pyls/bin/python")
+        (expand-file-name "~/.virtualenvs/pyls/bin/pyls")
+        "-vv"))
+      (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
 
-     (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
-
-(defun abingham/init-lsp-ui ()
+(defun abingham/post-init-lsp-ui ()
   (use-package lsp-ui
     :ensure t
     :init
@@ -72,7 +70,7 @@
 (defun abingham/init-company-lsp ()
   (use-package company-lsp
     :ensure t
-    :init (push 'company-lsp company-backends)))
+    :config (push 'company-lsp company-backends)))
 
 (defun abingham/init-imenu-list ()
   (use-package imenu-list))
@@ -198,9 +196,9 @@
   (add-hook 'csharp-mode-hook 'ycmd-mode))
 
 (defun abingham/post-init-company-ycmd ()
-  (push 'company-ycmd company-backends-js2-mode)
+  ;; (push 'company-ycmd company-backends-js2-mode)
   ;; (push 'company-ycmd company-backends-python-mode)
-  (push 'company-ycmd company-backends-csharp-mode)
+  ;; (push 'company-ycmd company-backends-csharp-mode)
   )
 
 

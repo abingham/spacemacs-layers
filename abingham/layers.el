@@ -16,11 +16,14 @@
    html
    ivy
    javascript
+   lsp
    markdown
    nginx
    org
    purescript
-   python
+   (python
+    ;; We do our own lsp-backend stuff for now.
+    :variables python-backend nil)
    restclient
    ruby
    rust
@@ -32,6 +35,5 @@
    themes-megapack
    version-control
    yaml
-   ycmd
-   )
+   ycmd)
  )
