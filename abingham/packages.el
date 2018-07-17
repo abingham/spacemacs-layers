@@ -41,7 +41,7 @@
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 
-(defun abingham/post-init-lsp-mode ()
+(defun abingham/init-lsp-mode ()
   (use-package lsp-mode
     :config
     (progn
@@ -59,12 +59,13 @@
         "-vv"))
       (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
 
-(defun abingham/post-init-lsp-ui ()
+(defun abingham/init-lsp-ui ()
   (use-package lsp-ui
     :ensure t
     :init
     (progn
       (setq lsp-ui-sideline-enable nil)
+      (setq lsp-ui-doc-mode t)
       (add-hook 'lsp-mode-hook 'lsp-ui-mode))))
 
 (defun abingham/init-company-lsp ()

@@ -16,7 +16,7 @@
    html
    ivy
    javascript
-   lsp
+   ;; lsp
    markdown
    nginx
    org
