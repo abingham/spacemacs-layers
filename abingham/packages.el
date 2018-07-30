@@ -8,7 +8,7 @@
         company
         company-ycmd
         counsel-codesearch
-        csharp-mode
+        ;; csharp-mode
         elog
         feature-mode
         flycheck-vale
@@ -33,6 +33,7 @@
         virtualenvwrapper
         web-mode
         (wilt :location local)
+        window-purpose
         ycmd
         ))
 
@@ -40,6 +41,18 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
+
+(defun abingham/init-window-purpose ()
+  (use-package window-purpose
+    :config
+    (progn
+      (purpose-mode)
+      ;; (add-to-list 'purpose-user-mode-purposes '(prog-mode . prog))
+      (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . util))
+      (add-to-list 'purpose-user-mode-purposes '(magit-mode . util))
+      (add-to-list 'purpose-user-mode-purposes '(compilation-mode . util))
+      (add-to-list 'purpose-user-mode-purposes '(paradox-menu-mode . util))
+      (purpose-compile-user-configuration))))
 
 (defun abingham/init-lsp-mode ()
   (use-package lsp-mode

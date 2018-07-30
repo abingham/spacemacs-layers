@@ -29,6 +29,14 @@ Replaces three keystroke sequence C-u 0 C-l."
                                  (call-interactively 'lsp-execute-code-action)
                                (quit "Quit")))))
 
+(defun abingham-user-init ()
+  ;; In prog-mode we want to use hasklig with ligatures.
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (setq buffer-face-mode-face '(:family "Hasklig" :height 130))
+              (buffer-face-mode 1)))
+  (setq exec-path-from-shell-check-startup-files nil))
+
 (defun abingham-user-config ()
   "Called by docspacemacs/user-config at the end of everything."
   ;; (global-set-key [(ctrl x) (ctrl k)] 'kill-region)
@@ -43,16 +51,11 @@ Replaces three keystroke sequence C-u 0 C-l."
             (lambda ()
               (set (make-local-variable 'mouse-1-click-follows-link) nil)))
 
-  ;; In prog-mode we want to use hasklig with ligatures.
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (setq buffer-face-mode-face '(:family "Hasklig" :height 130))
-              (buffer-face-mode 1)))
-
-  (set-face-background 'show-paren-match "moccasin")
+   (set-face-background 'show-paren-match "moccasin")
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (if (fboundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composition-mode)))
+      (mac-auto-operator-composition-mode))
+  )
 
 (defun abingham-ycmd-semantic-completion ()
   "Do a semantic completion with YCMD."
