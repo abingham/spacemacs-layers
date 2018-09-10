@@ -17,7 +17,6 @@
         ;; helm-codesearch
         imenu-list
         js2-mode
-        lsp-mode
         lsp-ui
         markdown-mode
         mmm-mode
@@ -56,25 +55,7 @@
       (add-to-list 'purpose-user-mode-purposes '(help-mode . util))
       (purpose-compile-user-configuration))))
 
-(defun abingham/init-lsp-mode ()
-  (use-package lsp-mode
-    :config
-    (progn
-      (lsp-define-stdio-client
-       lsp-python-mode
-       "python"
-       (lsp-make-traverser #'(lambda (dir)
-                               (directory-files
-                                dir
-                                nil
-                                "setup.py")))
-       (list
-        (expand-file-name "~/.virtualenvs/pyls/bin/python")
-        (expand-file-name "~/.virtualenvs/pyls/bin/pyls")
-        "-vv"))
-      (add-hook 'python-mode-hook #'lsp-python-mode-enable))))
-
-(defun abingham/init-lsp-ui ()
+(defun abingham/post-init-lsp-ui ()
   (use-package lsp-ui
     :ensure t
     :init
