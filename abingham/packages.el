@@ -42,7 +42,7 @@
 ;; For each package, define a function abingham/init-<package-name>
 ;;
 
-(defun abingham/init-window-purpose ()
+(defun abingham/post-init-window-purpose ()
   (use-package window-purpose
     :config
     (progn
@@ -50,8 +50,10 @@
       ;; (add-to-list 'purpose-user-mode-purposes '(prog-mode . prog))
       (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . util))
       (add-to-list 'purpose-user-mode-purposes '(magit-mode . util))
+      (add-to-list 'purpose-user-mode-purposes '(git-commit-mode . util))
       (add-to-list 'purpose-user-mode-purposes '(compilation-mode . util))
       (add-to-list 'purpose-user-mode-purposes '(paradox-menu-mode . util))
+      (add-to-list 'purpose-user-mode-purposes '(help-mode . util))
       (purpose-compile-user-configuration))))
 
 (defun abingham/init-lsp-mode ()
