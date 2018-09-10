@@ -16,6 +16,11 @@
         elm-yasnippets
         ;; helm-codesearch
         imenu-list
+
+        ;; importmagic relies on epc and impormagic being installed, which
+        ;; they're generally not. So I'm getting rid of it for now.
+        (importmagic :excluded t)
+        
         js2-mode
         lsp-ui
         markdown-mode
