@@ -20,7 +20,7 @@
         ;; importmagic relies on epc and impormagic being installed, which
         ;; they're generally not. So I'm getting rid of it for now.
         (importmagic :excluded t)
-        
+
         js2-mode
         lsp-ui
         mmm-mode
@@ -30,6 +30,7 @@
         paredit
         py-autopep8
         python
+        rst
         spaceline
         tox
         (traad :location local)

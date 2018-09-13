@@ -18,6 +18,7 @@
     ;; We do our own lsp-backend stuff for now.
     :variables python-backend 'lsp)
    restclient
+   rst
    shell-scripts
    spell-checking
    (syntax-checking
