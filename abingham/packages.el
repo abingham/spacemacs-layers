@@ -23,7 +23,6 @@
         
         js2-mode
         lsp-ui
-        markdown-mode
         mmm-mode
         (omnisharp :excluded t)
         org
@@ -89,12 +88,6 @@
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
   (add-hook 'c++-mode-hook 'ycmd-mode))
-
-(defun abingham/post-init-markdown-mode ()
-  (add-hook 'markdown-mode-hook
-            (lambda ()
-              (flyspell-mode 1)))
-  (add-hook 'markdown-mode-hook 'abingham-use-outline-for-imenu))
 
 (defun abingham/post-init-elm-mode ()
   (with-eval-after-load 'company

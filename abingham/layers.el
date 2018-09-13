@@ -19,6 +19,7 @@
     :variables python-backend 'lsp)
    restclient
    shell-scripts
+   spell-checking
    (syntax-checking
     :variables
     syntax-checking-enable-tooltips nil)
