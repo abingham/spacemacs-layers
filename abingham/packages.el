@@ -30,7 +30,6 @@
         paredit
         py-autopep8
         python
-        rst
         spaceline
         tox
         (traad :location local)
