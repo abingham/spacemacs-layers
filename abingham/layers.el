@@ -19,6 +19,7 @@
     :variables python-backend 'lsp)
    restclient
    restructuredtext
+   rust
    shell-scripts
    spell-checking
    (syntax-checking
