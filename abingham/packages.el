@@ -30,7 +30,6 @@
         paredit
         py-autopep8
         python
-        racer
         spaceline
         tox
         (traad :location local)
@@ -45,10 +44,6 @@
 
 ;; For each package, define a function abingham/init-<package-name>
 ;;
-
-(defun abingham/post-init-racer ()
-  ;; We have to do this because spacemacs seems to have problems picking up the RUST_SRC_PATH environment variable. Erg.
-  (setq racer-rust-src-path "/usr/local/share/rust/rust_src"))
 
 (defun abingham/post-init-window-purpose ()
   (use-package window-purpose
