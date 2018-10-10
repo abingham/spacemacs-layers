@@ -6,6 +6,7 @@
    ;; auto-completion-enable-snippets-in-popup t)
    auto-completion
    c-c++
+   elm
    emacs-lisp
    git
    html
