@@ -51,10 +51,12 @@ Replaces three keystroke sequence C-u 0 C-l."
             (lambda ()
               (set (make-local-variable 'mouse-1-click-follows-link) nil)))
 
-   (set-face-background 'show-paren-match "moccasin")
+  (set-face-background 'show-paren-match "moccasin")
+
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (if (fboundp 'mac-auto-operator-composition-mode)
-      (mac-auto-operator-composition-mode))
+
+  ;; (if (fboundp 'mac-auto-operator-composition-mode)
+  ;;     (mac-auto-operator-composition-mode))
   )
 
 (defun abingham-ycmd-semantic-completion ()
